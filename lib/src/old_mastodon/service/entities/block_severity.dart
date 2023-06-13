@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../core/serializable.dart';
+import '../../../core/serializable.dart';
 
 enum BlockSeverity implements Serializable {
   /// Users from this domain will be hidden from timelines, threads, and

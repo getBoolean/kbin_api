@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../../core/serializable.dart';
+import '../../../../core/serializable.dart';
 
 enum SearchContentType implements Serializable {
   /// `accounts`

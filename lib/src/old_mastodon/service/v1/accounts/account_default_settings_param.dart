@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../../core/language.dart';
+import '../../../../core/language.dart';
 import 'post_privacy.dart';
 
 class AccountDefaultSettingsParam {

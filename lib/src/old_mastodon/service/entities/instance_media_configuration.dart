@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/mime_type.dart';
+import '../../../core/mime_type.dart';
 
 part 'instance_media_configuration.freezed.dart';
 part 'instance_media_configuration.g.dart';

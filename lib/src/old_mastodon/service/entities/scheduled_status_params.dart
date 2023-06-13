@@ -7,8 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/language.dart';
-import '../../core/visibility.dart';
+import '../../../core/language.dart';
+import '../../../core/visibility.dart';
 import 'scheduled_poll.dart';
 
 part 'scheduled_status_params.freezed.dart';

@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'old_mastodon/core/client/client_context.dart';
-import 'old_mastodon/core/config/retry_config.dart';
+import 'core/client/client_context.dart';
+import 'core/config/retry_config.dart';
 import 'old_mastodon/service/kbin_v1_service.dart';
 import 'old_mastodon/service/kbin_v2_service.dart';
 import 'old_mastodon/service/oembed/oembed_service.dart';

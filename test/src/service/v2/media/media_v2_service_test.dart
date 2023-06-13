@@ -4,8 +4,8 @@
 
 import 'dart:io';
 
-import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
-import 'package:kbin_api/src/old_mastodon/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/media_attachment.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/media_focal_points.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';

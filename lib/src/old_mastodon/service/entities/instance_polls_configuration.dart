@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/convert/duration_converter.dart';
+import '../../../core/convert/duration_converter.dart';
 
 part 'instance_polls_configuration.freezed.dart';
 part 'instance_polls_configuration.g.dart';

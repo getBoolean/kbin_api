@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/language.dart';
+import '../../../core/language.dart';
 
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';

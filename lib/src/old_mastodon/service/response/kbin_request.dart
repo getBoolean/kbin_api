@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../core/http_method.dart';
+import '../../../core/http_method.dart';
 
 class KbinRequest {
   /// Returns the new instance of [KbinRequest].

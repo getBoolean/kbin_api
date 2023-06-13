@@ -5,9 +5,9 @@
 // Project imports:
 
 // 🌎 Project imports:
-import '../../../core/client/client_context.dart';
-import '../../../core/client/user_context.dart';
-import '../../../core/scope.dart';
+import '../../../../core/client/client_context.dart';
+import '../../../../core/client/user_context.dart';
+import '../../../../core/scope.dart';
 import '../../base_service.dart';
 import '../../entities/application.dart';
 import '../../entities/empty.dart';

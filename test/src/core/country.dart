@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/old_mastodon/core/country.dart';
+import 'package:kbin_api/src/core/country.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

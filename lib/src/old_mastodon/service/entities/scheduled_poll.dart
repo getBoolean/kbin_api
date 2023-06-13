@@ -7,7 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/convert/int_converter.dart';
+import '../../../core/convert/int_converter.dart';
 
 part 'scheduled_poll.freezed.dart';
 part 'scheduled_poll.g.dart';

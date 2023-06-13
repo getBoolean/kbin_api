@@ -8,9 +8,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/convert/int_date_time_converter.dart';
-import '../../core/convert/scope_converter.dart';
-import '../../core/scope.dart';
+import '../../../core/convert/int_date_time_converter.dart';
+import '../../../core/convert/scope_converter.dart';
+import '../../../core/scope.dart';
 
 part 'token.freezed.dart';
 part 'token.g.dart';

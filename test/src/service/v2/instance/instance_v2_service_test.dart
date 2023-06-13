@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
 import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
 import 'package:kbin_api/src/old_mastodon/service/v2/entities/v2_instance.dart';

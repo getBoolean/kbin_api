@@ -6,8 +6,8 @@ import 'dart:io';
 
 import 'package:http/http.dart';
 
-import '../../../core/client/client_context.dart';
-import '../../../core/client/user_context.dart';
+import '../../../../core/client/client_context.dart';
+import '../../../../core/client/user_context.dart';
 import '../../base_service.dart';
 import '../../entities/media_attachment.dart';
 import '../../entities/media_focal_points.dart';

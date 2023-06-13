@@ -7,8 +7,8 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/language.dart';
-import '../../core/visibility.dart';
+import '../../../core/language.dart';
+import '../../../core/visibility.dart';
 import 'account.dart';
 import 'application.dart';
 import 'emoji.dart';

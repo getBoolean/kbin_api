@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../core/http_status.dart';
+import '../../../core/http_status.dart';
 import '../entities/empty.dart';
 import '../entities/rate_limit.dart';
 import 'kbin_request.dart';

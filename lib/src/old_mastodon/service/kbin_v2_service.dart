@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../core/client/client_context.dart';
+import '../../core/client/client_context.dart';
 import 'v2/accounts/accounts_v2_service.dart';
 import 'v2/media/media_v2_service.dart';
 import 'v2/search/search_v2_service.dart';

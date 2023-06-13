@@ -2,8 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import '../../core/client/client_context.dart';
-import '../../core/client/user_context.dart';
+import '../../../core/client/client_context.dart';
+import '../../../core/client/user_context.dart';
 import '../base_service.dart';
 import '../entities/oembed_metadata.dart';
 import '../response/kbin_response.dart';

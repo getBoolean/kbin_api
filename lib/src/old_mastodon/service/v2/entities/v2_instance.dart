@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../core/language.dart';
+import '../../../../core/language.dart';
 import '../../entities/instance_contact.dart';
 import '../../entities/instance_registrations.dart';
 import '../../entities/instance_usage.dart';

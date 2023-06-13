@@ -4,7 +4,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/serializable.dart';
+import '../../../core/serializable.dart';
 
 enum DisplayMediaSetting implements Serializable {
   /// `default`

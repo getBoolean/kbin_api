@@ -7,7 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/convert/int_converter.dart';
+import '../../../core/convert/int_converter.dart';
 
 part 'featured_tag.freezed.dart';
 part 'featured_tag.g.dart';

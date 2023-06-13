@@ -5,7 +5,7 @@
 // ignore_for_file: deprecated_member_use_from_same_package
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/account.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/announcement.dart';
 import 'package:kbin_api/src/old_mastodon/service/entities/blocked_domain.dart';

@@ -8,8 +8,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../core/convert/int_converter.dart';
-import '../../core/convert/unix_timestamp_converter.dart';
+import '../../../core/convert/int_converter.dart';
+import '../../../core/convert/unix_timestamp_converter.dart';
 
 part 'instance_activity.freezed.dart';
 part 'instance_activity.g.dart';

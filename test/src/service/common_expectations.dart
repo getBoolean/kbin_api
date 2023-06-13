@@ -3,10 +3,10 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/old_mastodon/core/exception/data_not_found_exception.dart';
-import 'package:kbin_api/src/old_mastodon/core/exception/kbin_exception.dart';
-import 'package:kbin_api/src/old_mastodon/core/exception/rate_limit_exceeded_exception.dart';
-import 'package:kbin_api/src/old_mastodon/core/exception/unauthorized_exception.dart';
+import 'package:kbin_api/src/core/exception/data_not_found_exception.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/core/exception/rate_limit_exceeded_exception.dart';
+import 'package:kbin_api/src/core/exception/unauthorized_exception.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
