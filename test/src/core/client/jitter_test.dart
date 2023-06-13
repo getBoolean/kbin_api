@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:kbin_api/src/core/client/jitter.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/jitter.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -3,20 +3,20 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/core/exception/kbin_exception.dart';
-import 'package:kbin_api/src/service/entities/account.dart';
-import 'package:kbin_api/src/service/entities/empty.dart';
-import 'package:kbin_api/src/service/entities/poll.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/entities/scheduled_status.dart';
-import 'package:kbin_api/src/service/entities/status.dart';
-import 'package:kbin_api/src/service/entities/status_context.dart';
-import 'package:kbin_api/src/service/entities/status_edit.dart';
-import 'package:kbin_api/src/service/entities/status_source.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v1/statuses/status_poll_param.dart';
-import 'package:kbin_api/src/service/v1/statuses/statuses_v1_service.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/account.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/empty.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/poll.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/scheduled_status.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status_context.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status_edit.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status_source.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/statuses/status_poll_param.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/statuses/statuses_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

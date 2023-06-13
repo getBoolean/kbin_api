@@ -4,14 +4,14 @@
 
 import 'dart:io';
 
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/core/exception/kbin_exception.dart';
-import 'package:kbin_api/src/core/exception/pending_exception.dart';
-import 'package:kbin_api/src/service/entities/media_attachment.dart';
-import 'package:kbin_api/src/service/entities/media_focal_points.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v1/media/media_v1_service.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/old_mastodon/core/exception/pending_exception.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/media_attachment.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/media_focal_points.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/media/media_v1_service.dart';
 import 'package:test/test.dart';
 
 import '../../../../mocks/client_context_stubs.dart' as context;

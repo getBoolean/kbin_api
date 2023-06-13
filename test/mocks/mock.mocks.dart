@@ -6,9 +6,9 @@
 import 'dart:async' as _i4;
 
 import 'package:http/http.dart' as _i2;
-import 'package:kbin_api/src/core/client/client_context.dart' as _i3;
-import 'package:kbin_api/src/core/client/stream_request.dart' as _i6;
-import 'package:kbin_api/src/core/client/user_context.dart' as _i5;
+import 'package:kbin_api/src/old_mastodon/core/client/client_context.dart' as _i3;
+import 'package:kbin_api/src/old_mastodon/core/client/stream_request.dart' as _i6;
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint

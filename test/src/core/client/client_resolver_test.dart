@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/anonymous_client.dart';
-import 'package:kbin_api/src/core/client/client_resolver.dart';
-import 'package:kbin_api/src/core/client/oauth2_client.dart';
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/core/exception/unauthorized_exception.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/anonymous_client.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/client_resolver.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/oauth2_client.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/core/exception/unauthorized_exception.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

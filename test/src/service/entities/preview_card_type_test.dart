@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/service/entities/preview_card_type.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/preview_card_type.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

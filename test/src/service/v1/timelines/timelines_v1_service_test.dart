@@ -3,15 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/service/entities/conversation.dart';
-import 'package:kbin_api/src/service/entities/empty.dart';
-import 'package:kbin_api/src/service/entities/notification_snapshot.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/entities/status.dart';
-import 'package:kbin_api/src/service/entities/status_snapshot.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v1/timelines/timelines_v1_service.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/conversation.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/empty.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/notification_snapshot.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status_snapshot.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/timelines/timelines_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

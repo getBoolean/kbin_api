@@ -3,12 +3,12 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v2/entities/v2_search.dart';
-import 'package:kbin_api/src/service/v2/search/search_content_type.dart';
-import 'package:kbin_api/src/service/v2/search/search_v2_service.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v2/entities/v2_search.dart';
+import 'package:kbin_api/src/old_mastodon/service/v2/search/search_content_type.dart';
+import 'package:kbin_api/src/old_mastodon/service/v2/search/search_v2_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

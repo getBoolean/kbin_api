@@ -5,23 +5,23 @@
 // ignore_for_file: deprecated_member_use_from_same_package
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/service/entities/account.dart';
-import 'package:kbin_api/src/service/entities/announcement.dart';
-import 'package:kbin_api/src/service/entities/blocked_domain.dart';
-import 'package:kbin_api/src/service/entities/emoji.dart';
-import 'package:kbin_api/src/service/entities/empty.dart';
-import 'package:kbin_api/src/service/entities/extended_description.dart';
-import 'package:kbin_api/src/service/entities/instance.dart';
-import 'package:kbin_api/src/service/entities/instance_activity.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/entities/rule.dart';
-import 'package:kbin_api/src/service/entities/status.dart';
-import 'package:kbin_api/src/service/entities/tag.dart';
-import 'package:kbin_api/src/service/entities/trends_link.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v1/instance/instance_account_order.dart';
-import 'package:kbin_api/src/service/v1/instance/instance_v1_service.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/account.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/announcement.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/blocked_domain.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/emoji.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/empty.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/extended_description.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/instance.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/instance_activity.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rule.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/tag.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/trends_link.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/instance/instance_account_order.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/instance/instance_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

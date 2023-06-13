@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:kbin_api/src/core/http_method.dart';
+import 'package:kbin_api/src/old_mastodon/core/http_method.dart';
 import 'package:test/test.dart';
 
 void main() {

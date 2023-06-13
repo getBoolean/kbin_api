@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/client_context.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/client_context.dart';
 
 // 📦 Package imports:
 import 'package:mockito/annotations.dart';

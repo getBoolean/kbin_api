@@ -3,27 +3,27 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/core/client/user_context.dart';
-import 'package:kbin_api/src/core/country.dart';
-import 'package:kbin_api/src/core/language.dart';
-import 'package:kbin_api/src/core/locale.dart';
-import 'package:kbin_api/src/service/entities/account.dart';
-import 'package:kbin_api/src/service/entities/account_preferences.dart';
-import 'package:kbin_api/src/service/entities/empty.dart';
-import 'package:kbin_api/src/service/entities/familiar_follower.dart';
-import 'package:kbin_api/src/service/entities/featured_tag.dart';
-import 'package:kbin_api/src/service/entities/rate_limit.dart';
-import 'package:kbin_api/src/service/entities/relationship.dart';
-import 'package:kbin_api/src/service/entities/report.dart';
-import 'package:kbin_api/src/service/entities/status.dart';
-import 'package:kbin_api/src/service/entities/tag.dart';
-import 'package:kbin_api/src/service/entities/token.dart';
-import 'package:kbin_api/src/service/entities/user_list.dart';
-import 'package:kbin_api/src/service/response/kbin_response.dart';
-import 'package:kbin_api/src/service/v1/accounts/account_default_settings_param.dart';
-import 'package:kbin_api/src/service/v1/accounts/account_profile_meta_param.dart';
-import 'package:kbin_api/src/service/v1/accounts/accounts_v1_service.dart';
-import 'package:kbin_api/src/service/v1/accounts/post_privacy.dart';
+import 'package:kbin_api/src/old_mastodon/core/client/user_context.dart';
+import 'package:kbin_api/src/old_mastodon/core/country.dart';
+import 'package:kbin_api/src/old_mastodon/core/language.dart';
+import 'package:kbin_api/src/old_mastodon/core/locale.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/account.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/account_preferences.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/empty.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/familiar_follower.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/featured_tag.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/relationship.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/report.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/status.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/tag.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/token.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/user_list.dart';
+import 'package:kbin_api/src/old_mastodon/service/response/kbin_response.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/accounts/account_default_settings_param.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/accounts/account_profile_meta_param.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/accounts/accounts_v1_service.dart';
+import 'package:kbin_api/src/old_mastodon/service/v1/accounts/post_privacy.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';

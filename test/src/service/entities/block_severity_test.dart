@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:kbin_api/src/service/entities/block_severity.dart';
+import 'package:kbin_api/src/old_mastodon/service/entities/block_severity.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
