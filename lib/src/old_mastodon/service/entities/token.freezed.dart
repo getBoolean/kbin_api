@@ -147,8 +147,9 @@ class _$_Token implements _Token {
       required this.tokenType,
       @JsonKey(name: 'scope')
       @ScopeConverter()
-      required final List<Scope> scopes,
-      @IntDateTimeConverter() required this.createdAt})
+          required final List<Scope> scopes,
+      @IntDateTimeConverter()
+          required this.createdAt})
       : _scopes = scopes;
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
@@ -224,8 +225,9 @@ abstract class _Token implements Token {
       required final String tokenType,
       @JsonKey(name: 'scope')
       @ScopeConverter()
-      required final List<Scope> scopes,
-      @IntDateTimeConverter() required final DateTime createdAt}) = _$_Token;
+          required final List<Scope> scopes,
+      @IntDateTimeConverter()
+          required final DateTime createdAt}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 

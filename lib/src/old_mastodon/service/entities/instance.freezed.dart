@@ -515,13 +515,15 @@ abstract class _Instance implements Instance {
       required final String email,
       required final String version,
       required final List<Language> languages,
-      @JsonKey(name: 'stats') required final InstanceStatistics statistics,
+      @JsonKey(name: 'stats')
+          required final InstanceStatistics statistics,
       final String? thumbnail,
       @JsonKey(name: 'registrations')
-      required final bool isRegistrationsEnabled,
+          required final bool isRegistrationsEnabled,
       @JsonKey(name: 'approval_required')
-      required final bool isApprovalRequired,
-      @JsonKey(name: 'invites_enabled') required final bool isInvitesEnabled,
+          required final bool isApprovalRequired,
+      @JsonKey(name: 'invites_enabled')
+          required final bool isInvitesEnabled,
       final InstanceConfiguration? configuration,
       final Account? contactAccount,
       final List<Rule>? rules}) = _$_Instance;
