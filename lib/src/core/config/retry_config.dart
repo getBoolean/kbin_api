@@ -17,10 +17,10 @@ import '../client/retry_event.dart';
 /// the timing of retries.
 ///
 /// ```dart
-/// import 'package:mastodon_api/mastodon_api.dart';
+/// import 'package:kbin_api/kbin_api.dart';
 ///
 /// void main() async {
-///   final mastodon = MastodonApi(
+///   final mastodon = KbinApi(
 ///     bearerToken: 'YOUR_TOKEN_HERE',
 ///     retryConfig: RetryConfig.ofExponentialBackOffAndJitter(
 ///       maxAttempts: 5,

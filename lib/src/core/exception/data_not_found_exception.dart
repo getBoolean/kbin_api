@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'mastodon_exception.dart';
+import 'kbin_exception.dart';
 
 /// This object is thrown to indicate that the data associated with
-/// a particular condition does not exist on Mastodon's server.
-class DataNotFoundException extends MastodonException {
+/// a particular condition does not exist on Kbin's server.
+class DataNotFoundException extends KbinException {
   /// Returns the new instance of [DataNotFoundException].
   DataNotFoundException(super.message, super.response, [super.body]);
 

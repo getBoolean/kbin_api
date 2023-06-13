@@ -3,19 +3,19 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/exception/data_not_found_exception.dart';
-import 'package:mastodon_api/src/core/exception/mastodon_exception.dart';
-import 'package:mastodon_api/src/core/exception/rate_limit_exceeded_exception.dart';
-import 'package:mastodon_api/src/core/exception/unauthorized_exception.dart';
+import 'package:kbin_api/src/core/exception/data_not_found_exception.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/core/exception/rate_limit_exceeded_exception.dart';
+import 'package:kbin_api/src/core/exception/unauthorized_exception.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
-void expectMastodonException(Function fn) {
+void expectKbinException(Function fn) {
   expect(
     () async => await fn.call(),
     throwsA(
       allOf(
-        isA<MastodonException>(),
+        isA<KbinException>(),
         predicate(
           (dynamic e) =>
               e.message ==
@@ -58,9 +58,9 @@ void expectDataNotFoundExceptionDueToNoJson(Function fn) {
     () async => await fn.call(),
     throwsA(
       allOf(
-        isA<MastodonException>(),
+        isA<KbinException>(),
         predicate(
-          (MastodonException e) => e.message == 'No body exists in response.',
+          (KbinException e) => e.message == 'No body exists in response.',
         ),
       ),
     ),

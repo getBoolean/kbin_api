@@ -324,7 +324,7 @@
         "verified_at": null
       },
       {
-        "name": "Non-Tech Mastodon",
+        "name": "Non-Tech Kbin",
         "value": "\u003ca href=\"https://mstdn.social/@natesilva\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003emstdn.social/@natesilva\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
         "verified_at": "2022-12-08T17:07:47.566+00:00"
       }
@@ -798,7 +798,11 @@
         "value": "\u003ca href=\"https://dathagerty.com\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003edathagerty.com\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e",
         "verified_at": null
       },
-      { "name": "pronouns", "value": "he/him", "verified_at": null }
+      {
+        "name": "pronouns",
+        "value": "he/him",
+        "verified_at": null
+      }
     ]
   },
   {

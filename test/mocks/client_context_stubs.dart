@@ -8,7 +8,7 @@ import 'dart:io';
 
 // 📦 Package imports:
 import 'package:http/http.dart';
-import 'package:mastodon_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
 import 'package:mockito/mockito.dart';
 
 import 'mock.mocks.dart';

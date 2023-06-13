@@ -6,11 +6,11 @@
 import 'package:http/http.dart';
 
 // 🌎 Project imports:
-import 'mastodon_exception.dart';
+import 'kbin_exception.dart';
 
 /// This exception is thrown to indicate that the specified access token was not
 /// authorized by the server as a result of its use in the request.
-class UnauthorizedException extends MastodonException {
+class UnauthorizedException extends KbinException {
   /// Returns the new instance of [UnauthorizedException].
   UnauthorizedException(
     final String message, [

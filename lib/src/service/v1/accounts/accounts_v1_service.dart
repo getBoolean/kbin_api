@@ -26,7 +26,7 @@ import '../../entities/status.dart';
 import '../../entities/tag.dart';
 import '../../entities/token.dart';
 import '../../entities/user_list.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 import 'account_default_settings_param.dart';
 import 'account_profile_meta_param.dart';
 
@@ -79,7 +79,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#create
-  Future<MastodonResponse<Token>> createAccount({
+  Future<KbinResponse<Token>> createAccount({
     required String username,
     required String email,
     required String password,
@@ -109,7 +109,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#verify_credentials
-  Future<MastodonResponse<Account>> verifyAccountCredentials({
+  Future<KbinResponse<Account>> verifyAccountCredentials({
     String? bearerToken,
   });
 
@@ -149,7 +149,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#verify_credentials
-  Future<MastodonResponse<Account>> updateAccount({
+  Future<KbinResponse<Account>> updateAccount({
     String? displayName,
     String? bio,
     bool? discoverable,
@@ -180,7 +180,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#verify_credentials
-  Future<MastodonResponse<Account>> updateAvatarImage({
+  Future<KbinResponse<Account>> updateAvatarImage({
     required File file,
   });
 
@@ -205,12 +205,12 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#verify_credentials
-  Future<MastodonResponse<Account>> updateHeaderImage({
+  Future<KbinResponse<Account>> updateHeaderImage({
     required File file,
   });
 
   @Deprecated('Use lookupAccount instead. Will be removed v1.0.0')
-  Future<MastodonResponse<Account>> lookupById({
+  Future<KbinResponse<Account>> lookupById({
     required String accountId,
   });
 
@@ -236,7 +236,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#get
-  Future<MastodonResponse<Account>> lookupAccount({
+  Future<KbinResponse<Account>> lookupAccount({
     required String accountId,
   });
 
@@ -274,7 +274,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#statuses
-  Future<MastodonResponse<List<Status>>> lookupStatuses({
+  Future<KbinResponse<List<Status>>> lookupStatuses({
     required String accountId,
     String? maxStatusId,
     String? minStatusId,
@@ -308,7 +308,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#followers
-  Future<MastodonResponse<List<Account>>> lookupFollowers({
+  Future<KbinResponse<List<Account>>> lookupFollowers({
     required String accountId,
     int? limit,
   });
@@ -337,7 +337,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#following
-  Future<MastodonResponse<List<Account>>> lookupFollowings({
+  Future<KbinResponse<List<Account>>> lookupFollowings({
     required String accountId,
     int? limit,
   });
@@ -359,7 +359,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#featured_tags
-  Future<MastodonResponse<List<FeaturedTag>>> lookupFeaturedTags({
+  Future<KbinResponse<List<FeaturedTag>>> lookupFeaturedTags({
     required String accountId,
   });
 
@@ -384,7 +384,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#lists
-  Future<MastodonResponse<List<UserList>>> lookupContainedLists({
+  Future<KbinResponse<List<UserList>>> lookupContainedLists({
     required String accountId,
   });
 
@@ -420,7 +420,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#follow
-  Future<MastodonResponse<Relationship>> createFollow({
+  Future<KbinResponse<Relationship>> createFollow({
     required String accountId,
     bool? receiveReblogs,
     bool? receiveNotifications,
@@ -448,7 +448,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#unfollow
-  Future<MastodonResponse<Relationship>> destroyFollow({
+  Future<KbinResponse<Relationship>> destroyFollow({
     required String accountId,
   });
 
@@ -473,7 +473,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#remove_from_followers
-  Future<MastodonResponse<Relationship>> destroyFollower({
+  Future<KbinResponse<Relationship>> destroyFollower({
     required String accountId,
   });
 
@@ -499,7 +499,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#block
-  Future<MastodonResponse<Relationship>> createBlock({
+  Future<KbinResponse<Relationship>> createBlock({
     required String accountId,
   });
 
@@ -524,7 +524,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#unblock
-  Future<MastodonResponse<Relationship>> destroyBlock({
+  Future<KbinResponse<Relationship>> destroyBlock({
     required String accountId,
   });
 
@@ -555,7 +555,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#mute
-  Future<MastodonResponse<Relationship>> createMute({
+  Future<KbinResponse<Relationship>> createMute({
     required String accountId,
     bool? includeNotifications,
     Duration? duration,
@@ -582,7 +582,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#unmute
-  Future<MastodonResponse<Relationship>> destroyMute({
+  Future<KbinResponse<Relationship>> destroyMute({
     required String accountId,
   });
 
@@ -608,7 +608,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#pin
-  Future<MastodonResponse<Relationship>> createFeaturedProfile({
+  Future<KbinResponse<Relationship>> createFeaturedProfile({
     required String accountId,
   });
 
@@ -633,7 +633,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#unpin
-  Future<MastodonResponse<Relationship>> destroyFeaturedProfile({
+  Future<KbinResponse<Relationship>> destroyFeaturedProfile({
     required String accountId,
   });
 
@@ -662,7 +662,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#note
-  Future<MastodonResponse<Relationship>> updatePrivateComment({
+  Future<KbinResponse<Relationship>> updatePrivateComment({
     required String accountId,
     String text = '',
   });
@@ -688,7 +688,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#relationships
-  Future<MastodonResponse<List<Relationship>>> lookupRelationships({
+  Future<KbinResponse<List<Relationship>>> lookupRelationships({
     required List<String> accountIds,
   });
 
@@ -714,7 +714,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#familiar_followers
-  Future<MastodonResponse<List<FamiliarFollower>>> lookupFamiliarFollowers({
+  Future<KbinResponse<List<FamiliarFollower>>> lookupFamiliarFollowers({
     required List<String> accountIds,
   });
 
@@ -747,7 +747,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#search
-  Future<MastodonResponse<List<Account>>> searchAccounts({
+  Future<KbinResponse<List<Account>>> searchAccounts({
     required String query,
     int? limit,
     bool? resolveWithWebFinger,
@@ -780,7 +780,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/accounts/#lookup
-  Future<MastodonResponse<Account>> lookupAccountFromWebFingerAddress({
+  Future<KbinResponse<Account>> lookupAccountFromWebFingerAddress({
     required String accountIdentifier,
     bool? skipWebFinger,
   });
@@ -802,7 +802,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/preferences/#get
-  Future<MastodonResponse<AccountPreferences>> lookupPreferences();
+  Future<KbinResponse<AccountPreferences>> lookupPreferences();
 
   /// List all hashtags featured on your profile.
   ///
@@ -821,7 +821,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/featured_tags/#get
-  Future<MastodonResponse<List<FeaturedTag>>> lookupOwnedFeaturedTags();
+  Future<KbinResponse<List<FeaturedTag>>> lookupOwnedFeaturedTags();
 
   /// Promote a hashtag on your profile.
   ///
@@ -844,7 +844,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/featured_tags/#feature
-  Future<MastodonResponse<FeaturedTag>> createFeaturedTag({
+  Future<KbinResponse<FeaturedTag>> createFeaturedTag({
     required String tagName,
   });
 
@@ -869,7 +869,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/featured_tags/#unfeature-a-tag-unfeature
-  Future<MastodonResponse<Empty>> destroyFeaturedTag({
+  Future<KbinResponse<Empty>> destroyFeaturedTag({
     required String tagId,
   });
 
@@ -890,7 +890,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/featured_tags/#suggestions
-  Future<MastodonResponse<List<Tag>>> lookupSuggestedTags();
+  Future<KbinResponse<List<Tag>>> lookupSuggestedTags();
 
   /// View all followed tags.
   ///
@@ -914,7 +914,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/followed_tags/#get
-  Future<MastodonResponse<List<Tag>>> lookupFollowedTags({int? limit});
+  Future<KbinResponse<List<Tag>>> lookupFollowedTags({int? limit});
 
   /// Remove an account from follow suggestions.
   ///
@@ -937,7 +937,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/suggestions/#remove
-  Future<MastodonResponse<Empty>> destroyFollowSuggestion({
+  Future<KbinResponse<Empty>> destroyFollowSuggestion({
     required String accountId,
   });
 
@@ -959,7 +959,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/tags/#get
-  Future<MastodonResponse<Tag>> lookupTag({
+  Future<KbinResponse<Tag>> lookupTag({
     required String tagId,
   });
 
@@ -987,7 +987,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/tags/#follow
-  Future<MastodonResponse<Tag>> createFollowingTag({
+  Future<KbinResponse<Tag>> createFollowingTag({
     required String tagId,
   });
 
@@ -1015,7 +1015,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/tags/#unfollow
-  Future<MastodonResponse<Tag>> destroyFollowingTag({
+  Future<KbinResponse<Tag>> destroyFollowingTag({
     required String tagId,
   });
 
@@ -1059,7 +1059,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/reports/#post
-  Future<MastodonResponse<Report>> createReport({
+  Future<KbinResponse<Report>> createReport({
     required String accountId,
     String? reason,
     bool? forward,
@@ -1090,7 +1090,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/endorsements/#get
-  Future<MastodonResponse<List<Account>>> lookupFeaturedProfiles({
+  Future<KbinResponse<List<Account>>> lookupFeaturedProfiles({
     int? limit,
   });
 
@@ -1117,7 +1117,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/mutes/#get
-  Future<MastodonResponse<List<Account>>> lookupMutedAccounts({
+  Future<KbinResponse<List<Account>>> lookupMutedAccounts({
     int? limit,
   });
 
@@ -1143,7 +1143,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/favourites/#get
-  Future<MastodonResponse<List<Status>>> lookupFavouritedStatuses({
+  Future<KbinResponse<List<Status>>> lookupFavouritedStatuses({
     int? limit,
   });
 
@@ -1169,7 +1169,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/blocks/#get
-  Future<MastodonResponse<List<Account>>> lookupBlockedAccounts({
+  Future<KbinResponse<List<Account>>> lookupBlockedAccounts({
     int? limit,
   });
 
@@ -1195,7 +1195,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/bookmarks/#get
-  Future<MastodonResponse<List<Status>>> lookupBookmarkedStatuses({
+  Future<KbinResponse<List<Status>>> lookupBookmarkedStatuses({
     int? limit,
   });
 
@@ -1222,7 +1222,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/domain_blocks/#get
-  Future<MastodonResponse<List<String>>> lookupBlockedDomains({
+  Future<KbinResponse<List<String>>> lookupBlockedDomains({
     int? limit,
   });
 
@@ -1254,7 +1254,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/domain_blocks/#block
-  Future<MastodonResponse<Empty>> createBlockedDomain({
+  Future<KbinResponse<Empty>> createBlockedDomain({
     required String domainName,
   });
 
@@ -1281,7 +1281,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/domain_blocks/#unblock
-  Future<MastodonResponse<Empty>> destroyBlockedDomain({
+  Future<KbinResponse<Empty>> destroyBlockedDomain({
     required String domainName,
   });
 
@@ -1308,7 +1308,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/follow_requests/#get
-  Future<MastodonResponse<List<Account>>> lookupFollowRequests({
+  Future<KbinResponse<List<Account>>> lookupFollowRequests({
     int? limit,
   });
 
@@ -1334,7 +1334,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/follow_requests/#accept
-  Future<MastodonResponse<Relationship>> createFollower({
+  Future<KbinResponse<Relationship>> createFollower({
     required String accountId,
   });
 
@@ -1360,7 +1360,7 @@ abstract class AccountsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/follow_requests/#reject
-  Future<MastodonResponse<Relationship>> destroyFollowRequest({
+  Future<KbinResponse<Relationship>> destroyFollowRequest({
     required String accountId,
   });
 }
@@ -1373,7 +1373,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
   });
 
   @override
-  Future<MastodonResponse<Token>> createAccount({
+  Future<KbinResponse<Token>> createAccount({
     required String username,
     required String email,
     required String password,
@@ -1398,7 +1398,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> verifyAccountCredentials({
+  Future<KbinResponse<Account>> verifyAccountCredentials({
     String? bearerToken,
   }) async =>
       super.transformSingleDataResponse(
@@ -1413,7 +1413,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> updateAccount({
+  Future<KbinResponse<Account>> updateAccount({
     String? displayName,
     String? bio,
     bool? discoverable,
@@ -1451,7 +1451,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> updateAvatarImage({
+  Future<KbinResponse<Account>> updateAvatarImage({
     required File file,
   }) async =>
       super.transformSingleDataResponse(
@@ -1470,7 +1470,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> updateHeaderImage({
+  Future<KbinResponse<Account>> updateHeaderImage({
     required File file,
   }) async =>
       super.transformSingleDataResponse(
@@ -1489,13 +1489,13 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> lookupById({
+  Future<KbinResponse<Account>> lookupById({
     required String accountId,
   }) async =>
       await lookupAccount(accountId: accountId);
 
   @override
-  Future<MastodonResponse<Account>> lookupAccount({
+  Future<KbinResponse<Account>> lookupAccount({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1507,7 +1507,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupStatuses({
+  Future<KbinResponse<List<Status>>> lookupStatuses({
     required String accountId,
     String? maxStatusId,
     String? minStatusId,
@@ -1533,7 +1533,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupFollowers({
+  Future<KbinResponse<List<Account>>> lookupFollowers({
     required String accountId,
     int? limit,
   }) async =>
@@ -1549,7 +1549,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupFollowings({
+  Future<KbinResponse<List<Account>>> lookupFollowings({
     required Object accountId,
     int? limit,
   }) async =>
@@ -1565,7 +1565,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<FeaturedTag>>> lookupFeaturedTags({
+  Future<KbinResponse<List<FeaturedTag>>> lookupFeaturedTags({
     required String accountId,
   }) async =>
       super.transformMultiDataResponse(
@@ -1577,7 +1577,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<UserList>>> lookupContainedLists({
+  Future<KbinResponse<List<UserList>>> lookupContainedLists({
     required String accountId,
   }) async =>
       super.transformMultiDataResponse(
@@ -1589,7 +1589,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> createFollow({
+  Future<KbinResponse<Relationship>> createFollow({
     required String accountId,
     bool? receiveReblogs,
     bool? receiveNotifications,
@@ -1609,7 +1609,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyFollow({
+  Future<KbinResponse<Relationship>> destroyFollow({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1621,7 +1621,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyFollower({
+  Future<KbinResponse<Relationship>> destroyFollower({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1633,7 +1633,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> createBlock({
+  Future<KbinResponse<Relationship>> createBlock({
     required Object accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1645,7 +1645,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyBlock({
+  Future<KbinResponse<Relationship>> destroyBlock({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1657,7 +1657,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> createMute({
+  Future<KbinResponse<Relationship>> createMute({
     required String accountId,
     bool? includeNotifications,
     Duration? duration,
@@ -1675,7 +1675,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyMute({
+  Future<KbinResponse<Relationship>> destroyMute({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1687,7 +1687,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> createFeaturedProfile({
+  Future<KbinResponse<Relationship>> createFeaturedProfile({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1699,7 +1699,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyFeaturedProfile({
+  Future<KbinResponse<Relationship>> destroyFeaturedProfile({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1711,7 +1711,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> updatePrivateComment({
+  Future<KbinResponse<Relationship>> updatePrivateComment({
     required String accountId,
     String text = '',
   }) async =>
@@ -1727,7 +1727,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Relationship>>> lookupRelationships({
+  Future<KbinResponse<List<Relationship>>> lookupRelationships({
     required List<String> accountIds,
   }) async =>
       super.transformMultiDataResponse(
@@ -1740,7 +1740,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<FamiliarFollower>>> lookupFamiliarFollowers({
+  Future<KbinResponse<List<FamiliarFollower>>> lookupFamiliarFollowers({
     required List<String> accountIds,
   }) async =>
       super.transformMultiDataResponse(
@@ -1751,7 +1751,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> searchAccounts({
+  Future<KbinResponse<List<Account>>> searchAccounts({
     required String query,
     int? limit,
     bool? resolveWithWebFinger,
@@ -1772,7 +1772,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Account>> lookupAccountFromWebFingerAddress({
+  Future<KbinResponse<Account>> lookupAccountFromWebFingerAddress({
     required String accountIdentifier,
     bool? skipWebFinger,
   }) async =>
@@ -1789,7 +1789,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<AccountPreferences>> lookupPreferences() async =>
+  Future<KbinResponse<AccountPreferences>> lookupPreferences() async =>
       super.transformSingleDataResponse(
         await super.get(
           UserContext.oauth2Only,
@@ -1799,7 +1799,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<FeaturedTag>>> lookupOwnedFeaturedTags() async =>
+  Future<KbinResponse<List<FeaturedTag>>> lookupOwnedFeaturedTags() async =>
       super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2Only,
@@ -1809,7 +1809,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<FeaturedTag>> createFeaturedTag({
+  Future<KbinResponse<FeaturedTag>> createFeaturedTag({
     required String tagName,
   }) async =>
       super.transformSingleDataResponse(
@@ -1824,7 +1824,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyFeaturedTag({
+  Future<KbinResponse<Empty>> destroyFeaturedTag({
     required String tagId,
   }) async =>
       super.transformEmptyResponse(
@@ -1835,7 +1835,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Tag>>> lookupSuggestedTags() async =>
+  Future<KbinResponse<List<Tag>>> lookupSuggestedTags() async =>
       super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2Only,
@@ -1845,7 +1845,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Tag>>> lookupFollowedTags({
+  Future<KbinResponse<List<Tag>>> lookupFollowedTags({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -1860,7 +1860,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyFollowSuggestion({
+  Future<KbinResponse<Empty>> destroyFollowSuggestion({
     required String accountId,
   }) async =>
       super.transformEmptyResponse(
@@ -1871,7 +1871,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Tag>> lookupTag({
+  Future<KbinResponse<Tag>> lookupTag({
     required String tagId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1883,7 +1883,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Tag>> createFollowingTag({
+  Future<KbinResponse<Tag>> createFollowingTag({
     required String tagId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1895,7 +1895,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Tag>> destroyFollowingTag({
+  Future<KbinResponse<Tag>> destroyFollowingTag({
     required String tagId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1907,7 +1907,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Report>> createReport({
+  Future<KbinResponse<Report>> createReport({
     required String accountId,
     String? reason,
     bool? forward,
@@ -1932,7 +1932,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupFeaturedProfiles({
+  Future<KbinResponse<List<Account>>> lookupFeaturedProfiles({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -1947,7 +1947,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupMutedAccounts({
+  Future<KbinResponse<List<Account>>> lookupMutedAccounts({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -1962,7 +1962,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupFavouritedStatuses({
+  Future<KbinResponse<List<Status>>> lookupFavouritedStatuses({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -1977,7 +1977,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupBlockedAccounts({
+  Future<KbinResponse<List<Account>>> lookupBlockedAccounts({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -1992,7 +1992,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupBookmarkedStatuses({
+  Future<KbinResponse<List<Status>>> lookupBookmarkedStatuses({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -2007,7 +2007,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<String>>> lookupBlockedDomains({
+  Future<KbinResponse<List<String>>> lookupBlockedDomains({
     int? limit,
   }) async =>
       super.transformMultiRawDataResponse(
@@ -2021,7 +2021,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> createBlockedDomain({
+  Future<KbinResponse<Empty>> createBlockedDomain({
     required String domainName,
   }) async =>
       super.transformEmptyResponse(
@@ -2035,7 +2035,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyBlockedDomain({
+  Future<KbinResponse<Empty>> destroyBlockedDomain({
     required String domainName,
   }) async =>
       super.transformEmptyResponse(
@@ -2046,7 +2046,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupFollowRequests({
+  Future<KbinResponse<List<Account>>> lookupFollowRequests({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -2061,7 +2061,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> createFollower({
+  Future<KbinResponse<Relationship>> createFollower({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(
@@ -2073,7 +2073,7 @@ class _AccountsV1Service extends BaseService implements AccountsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Relationship>> destroyFollowRequest({
+  Future<KbinResponse<Relationship>> destroyFollowRequest({
     required String accountId,
   }) async =>
       super.transformSingleDataResponse(

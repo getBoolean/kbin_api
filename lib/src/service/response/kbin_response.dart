@@ -6,12 +6,12 @@
 import '../../core/http_status.dart';
 import '../entities/empty.dart';
 import '../entities/rate_limit.dart';
-import 'mastodon_request.dart';
+import 'kbin_request.dart';
 
-/// The class represents the response from Mastodon API.
-class MastodonResponse<D> {
-  /// Returns the new instance of [MastodonResponse].
-  const MastodonResponse({
+/// The class represents the response from Kbin API.
+class KbinResponse<D> {
+  /// Returns the new instance of [KbinResponse].
+  const KbinResponse({
     required this.headers,
     required this.status,
     required this.request,
@@ -22,11 +22,11 @@ class MastodonResponse<D> {
   /// The headers of this response.
   final Map<String, String> headers;
 
-  /// The HTTP status from Mastodon API server.
+  /// The HTTP status from Kbin API server.
   final HttpStatus status;
 
   /// The request that generated this response.
-  final MastodonRequest request;
+  final KbinRequest request;
 
   /// The rate limit
   final RateLimit rateLimit;
@@ -47,7 +47,7 @@ class MastodonResponse<D> {
   @override
   String toString() {
     final StringBuffer buffer = StringBuffer();
-    buffer.write('MastodonResponse(');
+    buffer.write('KbinResponse(');
     buffer.write('rateLimit: $rateLimit, ');
     buffer.write('data: $data');
     buffer.write(')');

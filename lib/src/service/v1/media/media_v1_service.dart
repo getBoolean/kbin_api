@@ -11,7 +11,7 @@ import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
 import '../../entities/media_attachment.dart';
 import '../../entities/media_focal_points.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class MediaV1Service {
   /// Returns the new instance of [MediaV1Service].
@@ -55,7 +55,7 @@ abstract class MediaV1Service {
   ///
   /// - https://docs.joinmastodon.org/methods/media/#v1
   @Deprecated('Still works, but officially deprecated. Use v2 endpoint instead')
-  Future<MastodonResponse<MediaAttachment>> uploadMedia({
+  Future<KbinResponse<MediaAttachment>> uploadMedia({
     required File file,
     File? thumbnail,
     String? description,
@@ -87,7 +87,7 @@ abstract class MediaV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/media/#get
-  Future<MastodonResponse<MediaAttachment>> lookupMedia({
+  Future<KbinResponse<MediaAttachment>> lookupMedia({
     required String mediaId,
   });
 
@@ -120,7 +120,7 @@ abstract class MediaV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/media/#update
-  Future<MastodonResponse<MediaAttachment>> updateMedia({
+  Future<KbinResponse<MediaAttachment>> updateMedia({
     required String mediaId,
     File? thumbnail,
     String? description,
@@ -136,7 +136,7 @@ class _MediaV1Service extends BaseService implements MediaV1Service {
   });
 
   @override
-  Future<MastodonResponse<MediaAttachment>> uploadMedia({
+  Future<KbinResponse<MediaAttachment>> uploadMedia({
     required File file,
     File? thumbnail,
     String? description,
@@ -168,7 +168,7 @@ class _MediaV1Service extends BaseService implements MediaV1Service {
       );
 
   @override
-  Future<MastodonResponse<MediaAttachment>> lookupMedia({
+  Future<KbinResponse<MediaAttachment>> lookupMedia({
     required String mediaId,
   }) async =>
       super.transformSingleDataResponse(
@@ -180,7 +180,7 @@ class _MediaV1Service extends BaseService implements MediaV1Service {
       );
 
   @override
-  Future<MastodonResponse<MediaAttachment>> updateMedia({
+  Future<KbinResponse<MediaAttachment>> updateMedia({
     required String mediaId,
     File? thumbnail,
     String? description,

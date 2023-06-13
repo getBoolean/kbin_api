@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v2/entities/v2_instance.dart';
-import 'package:mastodon_api/src/service/v2/instance/instance_v2_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v2/entities/v2_instance.dart';
+import 'package:kbin_api/src/service/v2/instance/instance_v2_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -30,7 +30,7 @@ void main() {
 
       final response = await instanceService.lookupInformation();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<V2Instance>());
     });

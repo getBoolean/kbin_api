@@ -2,12 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
   //! You need to specify mastodon instance (domain) you want to access.
   //! Also you need to get bearer token from your developer page, or OAuth 2.0.
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_BEARER_TOKEN',
 
@@ -51,7 +51,7 @@ Future<void> main() async {
     print(e);
   } on RateLimitExceededException catch (e) {
     print(e);
-  } on MastodonException catch (e) {
+  } on KbinException catch (e) {
     print(e.response);
     print(e.body);
     print(e);

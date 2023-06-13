@@ -1,6 +1,6 @@
 ---
 name: Feature request.
-about: Suggest a new feature for mastodon_api.
+about: Suggest a new feature for kbin_api.
 title: "Feature Request:"
 labels: "feat,help wanted,untriaged"
 assignees: "myConsciousness"

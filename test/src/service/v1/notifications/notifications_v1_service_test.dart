@@ -3,13 +3,13 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/notification.dart';
-import 'package:mastodon_api/src/service/entities/notification_type.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/notifications/notifications_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/notification.dart';
+import 'package:kbin_api/src/service/entities/notification_type.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/notifications/notifications_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -53,7 +53,7 @@ void main() {
         accountId: '1111',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Notification>>());
       expect(
@@ -125,7 +125,7 @@ void main() {
         notificationId: '12345',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Notification>());
     });
@@ -185,7 +185,7 @@ void main() {
 
       final response = await notificationsService.destroyAllNotifications();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -241,7 +241,7 @@ void main() {
         notificationId: '12345',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });

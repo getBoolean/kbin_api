@@ -9,13 +9,13 @@ import 'dart:io';
 import 'package:http/http.dart';
 
 // 🌎 Project imports:
-import 'mastodon_exception.dart';
+import 'kbin_exception.dart';
 
 /// This class indicates that an exception occurred during a file upload to
-/// Mastodon.
-class MastodonUploadException extends MastodonException {
-  /// Returns the new instance of [MastodonUploadException].
-  MastodonUploadException(
+/// Kbin.
+class KbinUploadException extends KbinException {
+  /// Returns the new instance of [KbinUploadException].
+  KbinUploadException(
     this.file,
     final String message, [
     final Response? response,
@@ -27,7 +27,7 @@ class MastodonUploadException extends MastodonException {
   @override
   String toString() {
     final buffer = StringBuffer()
-      ..writeln('MastodonUploadException: $message\n')
+      ..writeln('KbinUploadException: $message\n')
       ..writeln('  ✅ File Path:')
       ..writeln('   ${file.path}\n');
 

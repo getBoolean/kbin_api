@@ -9,7 +9,7 @@ import '../../base_service.dart';
 import '../../entities/empty.dart';
 import '../../entities/notification.dart';
 import '../../entities/notification_type.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class NotificationsV1Service {
   /// Returns the new instance of [NotificationsV1Service].
@@ -57,7 +57,7 @@ abstract class NotificationsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/notifications/#get
-  Future<MastodonResponse<List<Notification>>> lookupNotifications({
+  Future<KbinResponse<List<Notification>>> lookupNotifications({
     String? maxNotificationId,
     String? sinceNotificationId,
     String? minNotificationId,
@@ -88,7 +88,7 @@ abstract class NotificationsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/notifications/#get-one
-  Future<MastodonResponse<Notification>> lookupNotification({
+  Future<KbinResponse<Notification>> lookupNotification({
     required String notificationId,
   });
 
@@ -109,7 +109,7 @@ abstract class NotificationsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/notifications/#clear
-  Future<MastodonResponse<Empty>> destroyAllNotifications();
+  Future<KbinResponse<Empty>> destroyAllNotifications();
 
   /// Dismiss a single notification from the server.
   ///
@@ -132,7 +132,7 @@ abstract class NotificationsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/notifications/#dismiss
-  Future<MastodonResponse<Empty>> destroyNotification({
+  Future<KbinResponse<Empty>> destroyNotification({
     required String notificationId,
   });
 }
@@ -146,7 +146,7 @@ class _NotificationsV1Service extends BaseService
   });
 
   @override
-  Future<MastodonResponse<List<Notification>>> lookupNotifications({
+  Future<KbinResponse<List<Notification>>> lookupNotifications({
     String? maxNotificationId,
     String? sinceNotificationId,
     String? minNotificationId,
@@ -173,7 +173,7 @@ class _NotificationsV1Service extends BaseService
       );
 
   @override
-  Future<MastodonResponse<Notification>> lookupNotification({
+  Future<KbinResponse<Notification>> lookupNotification({
     required String notificationId,
   }) async =>
       super.transformSingleDataResponse(
@@ -185,7 +185,7 @@ class _NotificationsV1Service extends BaseService
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyAllNotifications() async =>
+  Future<KbinResponse<Empty>> destroyAllNotifications() async =>
       super.transformEmptyResponse(
         await super.post(
           UserContext.oauth2Only,
@@ -194,7 +194,7 @@ class _NotificationsV1Service extends BaseService
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyNotification({
+  Future<KbinResponse<Empty>> destroyNotification({
     required String notificationId,
   }) async =>
       super.transformEmptyResponse(

@@ -5,9 +5,9 @@
 // 🌎 Project imports:
 import '../../core/http_method.dart';
 
-class MastodonRequest {
-  /// Returns the new instance of [MastodonRequest].
-  const MastodonRequest({
+class KbinRequest {
+  /// Returns the new instance of [KbinRequest].
+  const KbinRequest({
     required this.method,
     required this.url,
   });

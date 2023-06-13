@@ -5,23 +5,23 @@
 // ignore_for_file: deprecated_member_use_from_same_package
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/service/entities/account.dart';
-import 'package:mastodon_api/src/service/entities/announcement.dart';
-import 'package:mastodon_api/src/service/entities/blocked_domain.dart';
-import 'package:mastodon_api/src/service/entities/emoji.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/extended_description.dart';
-import 'package:mastodon_api/src/service/entities/instance.dart';
-import 'package:mastodon_api/src/service/entities/instance_activity.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/entities/rule.dart';
-import 'package:mastodon_api/src/service/entities/status.dart';
-import 'package:mastodon_api/src/service/entities/tag.dart';
-import 'package:mastodon_api/src/service/entities/trends_link.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/instance/instance_account_order.dart';
-import 'package:mastodon_api/src/service/v1/instance/instance_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/service/entities/account.dart';
+import 'package:kbin_api/src/service/entities/announcement.dart';
+import 'package:kbin_api/src/service/entities/blocked_domain.dart';
+import 'package:kbin_api/src/service/entities/emoji.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/extended_description.dart';
+import 'package:kbin_api/src/service/entities/instance.dart';
+import 'package:kbin_api/src/service/entities/instance_activity.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/entities/rule.dart';
+import 'package:kbin_api/src/service/entities/status.dart';
+import 'package:kbin_api/src/service/entities/tag.dart';
+import 'package:kbin_api/src/service/entities/trends_link.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/instance/instance_account_order.dart';
+import 'package:kbin_api/src/service/v1/instance/instance_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -44,7 +44,7 @@ void main() {
 
       final response = await instanceService.lookupInformation();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Instance>());
     });
@@ -101,7 +101,7 @@ void main() {
 
       final response = await instanceService.lookupConnectedDomains();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<String>>());
     });
@@ -158,7 +158,7 @@ void main() {
 
       final response = await instanceService.lookupWeeklyActivities();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<InstanceActivity>>());
     });
@@ -215,7 +215,7 @@ void main() {
 
       final response = await instanceService.lookupRules();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Rule>>());
     });
@@ -272,7 +272,7 @@ void main() {
 
       final response = await instanceService.lookupBlockedDomains();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<BlockedDomain>>());
     });
@@ -329,7 +329,7 @@ void main() {
 
       final response = await instanceService.lookupExtendedDescription();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<ExtendedDescription>());
     });
@@ -386,7 +386,7 @@ void main() {
 
       final response = await instanceService.lookupBlockedDomains();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<BlockedDomain>>());
     });
@@ -445,7 +445,7 @@ void main() {
 
       final response = await instanceService.lookupTrendingTags(limit: 10);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Tag>>());
     });
@@ -504,7 +504,7 @@ void main() {
 
       final response = await instanceService.lookupTrendingStatuses(limit: 10);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -563,7 +563,7 @@ void main() {
 
       final response = await instanceService.lookupTrendingLinks(limit: 10);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<TrendsLink>>());
     });
@@ -622,7 +622,7 @@ void main() {
 
       final response = await instanceService.lookupActiveAnnouncements();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Announcement>>());
     });
@@ -685,7 +685,7 @@ void main() {
 
       final response = await instanceService.lookupAnnouncements();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Announcement>>());
     });
@@ -747,7 +747,7 @@ void main() {
         announcementId: '1111',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -826,7 +826,7 @@ void main() {
         emojiName: '❗',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -905,7 +905,7 @@ void main() {
         emojiName: '❗',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -983,7 +983,7 @@ void main() {
 
       final response = await instanceService.lookupAvailableEmoji();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Emoji>>());
     });
@@ -1050,7 +1050,7 @@ void main() {
         onlyLocal: true,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });

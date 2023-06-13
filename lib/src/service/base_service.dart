@@ -14,7 +14,7 @@ import '../core/client/client_context.dart';
 import '../core/client/stream_response.dart';
 import '../core/client/user_context.dart';
 import '../core/exception/data_not_found_exception.dart';
-import '../core/exception/mastodon_exception.dart';
+import '../core/exception/kbin_exception.dart';
 import '../core/exception/pending_exception.dart';
 import '../core/exception/rate_limit_exceeded_exception.dart';
 import '../core/exception/unauthorized_exception.dart';
@@ -24,8 +24,8 @@ import '../core/service_helper.dart';
 import '../core/util/json_utils.dart';
 import 'entities/empty.dart';
 import 'entities/rate_limit.dart';
-import 'response/mastodon_request.dart';
-import 'response/mastodon_response.dart';
+import 'response/kbin_request.dart';
+import 'response/kbin_response.dart';
 
 /// The callback function for building data object from response.
 typedef DataBuilder<D> = D Function(Map<String, Object?> json);
@@ -87,21 +87,21 @@ abstract class _Service {
     List<MultipartFile> files = const [],
   });
 
-  MastodonResponse<Empty> transformEmptyResponse(
+  KbinResponse<Empty> transformEmptyResponse(
     Response response,
   );
 
-  MastodonResponse<D> transformSingleDataResponse<D>(
+  KbinResponse<D> transformSingleDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   });
 
-  MastodonResponse<List<D>> transformMultiDataResponse<D>(
+  KbinResponse<List<D>> transformMultiDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   });
 
-  MastodonResponse<List<D>> transformMultiRawDataResponse<D>(
+  KbinResponse<List<D>> transformMultiRawDataResponse<D>(
     Response response,
   );
 }
@@ -256,13 +256,13 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  MastodonResponse<Empty> transformEmptyResponse(
+  KbinResponse<Empty> transformEmptyResponse(
     Response response,
   ) =>
-      MastodonResponse(
+      KbinResponse(
         headers: response.headers,
         status: HttpStatus.valueOf(response.statusCode),
-        request: MastodonRequest(
+        request: KbinRequest(
           method: HttpMethod.valueOf(response.request!.method),
           url: response.request!.url,
         ),
@@ -273,14 +273,14 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  MastodonResponse<D> transformSingleDataResponse<D>(
+  KbinResponse<D> transformSingleDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   }) =>
-      MastodonResponse(
+      KbinResponse(
         headers: response.headers,
         status: HttpStatus.valueOf(response.statusCode),
-        request: MastodonRequest(
+        request: KbinRequest(
           method: HttpMethod.valueOf(response.request!.method),
           url: response.request!.url,
         ),
@@ -293,16 +293,16 @@ abstract class BaseService implements _Service {
       );
 
   @override
-  MastodonResponse<List<D>> transformMultiDataResponse<D>(
+  KbinResponse<List<D>> transformMultiDataResponse<D>(
     Response response, {
     required DataBuilder<D> dataBuilder,
   }) {
     final json = jsonDecode(response.body);
 
-    return MastodonResponse(
+    return KbinResponse(
       headers: response.headers,
       status: HttpStatus.valueOf(response.statusCode),
-      request: MastodonRequest(
+      request: KbinRequest(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
@@ -316,15 +316,15 @@ abstract class BaseService implements _Service {
   }
 
   @override
-  MastodonResponse<List<D>> transformMultiRawDataResponse<D>(
+  KbinResponse<List<D>> transformMultiRawDataResponse<D>(
     Response response,
   ) {
     final json = jsonDecode(response.body);
 
-    return MastodonResponse(
+    return KbinResponse(
       headers: response.headers,
       status: HttpStatus.valueOf(response.statusCode),
-      request: MastodonRequest(
+      request: KbinRequest(
         method: HttpMethod.valueOf(response.request!.method),
         url: response.request!.url,
       ),
@@ -370,7 +370,7 @@ abstract class BaseService implements _Service {
     }
 
     if (400 <= response.statusCode && response.statusCode < 500) {
-      throw MastodonException(
+      throw KbinException(
         'Required parameter is missing or improperly formatted.',
         response,
       );
@@ -393,7 +393,7 @@ abstract class BaseService implements _Service {
     }
 
     if (HttpStatus.forbidden.equalsByCode(response.statusCode)) {
-      throw MastodonException(
+      throw KbinException(
         'Your request is forbidden.',
         response,
       );

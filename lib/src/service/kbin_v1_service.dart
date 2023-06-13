@@ -12,14 +12,14 @@ import 'v1/notifications/notifications_v1_service.dart';
 import 'v1/statuses/statuses_v1_service.dart';
 import 'v1/timelines/timelines_v1_service.dart';
 
-/// The class represents the Mastodon v1 services.
-abstract class MastodonV1Service {
-  /// Returns the new instance of [MastodonV1Service].
-  factory MastodonV1Service({
+/// The class represents the Kbin v1 services.
+abstract class KbinV1Service {
+  /// Returns the new instance of [KbinV1Service].
+  factory KbinV1Service({
     required String instance,
     required ClientContext context,
   }) =>
-      _MastodonV1Service(
+      _KbinV1Service(
         instance: instance,
         context: context,
       );
@@ -46,9 +46,9 @@ abstract class MastodonV1Service {
   MediaV1Service get media;
 }
 
-class _MastodonV1Service implements MastodonV1Service {
-  /// Returns the new instance of [_MastodonV1Service].
-  _MastodonV1Service({
+class _KbinV1Service implements KbinV1Service {
+  /// Returns the new instance of [_KbinV1Service].
+  _KbinV1Service({
     required String instance,
     required ClientContext context,
   })  : instance = InstanceV1Service(instance: instance, context: context),

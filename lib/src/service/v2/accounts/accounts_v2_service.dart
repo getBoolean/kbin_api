@@ -7,7 +7,7 @@ import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
 import '../../entities/suggestion.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class AccountsV2Service {
   /// Returns the new instance of [AccountsV2Service].
@@ -43,7 +43,7 @@ abstract class AccountsV2Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/suggestions/#v2
-  Future<MastodonResponse<List<Suggestion>>> lookupFollowSuggestions({
+  Future<KbinResponse<List<Suggestion>>> lookupFollowSuggestions({
     int? limit,
   });
 }
@@ -56,7 +56,7 @@ class _AccountsV2Service extends BaseService implements AccountsV2Service {
   });
 
   @override
-  Future<MastodonResponse<List<Suggestion>>> lookupFollowSuggestions({
+  Future<KbinResponse<List<Suggestion>>> lookupFollowSuggestions({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(

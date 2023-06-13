@@ -3,27 +3,27 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/core/country.dart';
-import 'package:mastodon_api/src/core/language.dart';
-import 'package:mastodon_api/src/core/locale.dart';
-import 'package:mastodon_api/src/service/entities/account.dart';
-import 'package:mastodon_api/src/service/entities/account_preferences.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/familiar_follower.dart';
-import 'package:mastodon_api/src/service/entities/featured_tag.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/entities/relationship.dart';
-import 'package:mastodon_api/src/service/entities/report.dart';
-import 'package:mastodon_api/src/service/entities/status.dart';
-import 'package:mastodon_api/src/service/entities/tag.dart';
-import 'package:mastodon_api/src/service/entities/token.dart';
-import 'package:mastodon_api/src/service/entities/user_list.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/accounts/account_default_settings_param.dart';
-import 'package:mastodon_api/src/service/v1/accounts/account_profile_meta_param.dart';
-import 'package:mastodon_api/src/service/v1/accounts/accounts_v1_service.dart';
-import 'package:mastodon_api/src/service/v1/accounts/post_privacy.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/country.dart';
+import 'package:kbin_api/src/core/language.dart';
+import 'package:kbin_api/src/core/locale.dart';
+import 'package:kbin_api/src/service/entities/account.dart';
+import 'package:kbin_api/src/service/entities/account_preferences.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/familiar_follower.dart';
+import 'package:kbin_api/src/service/entities/featured_tag.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/entities/relationship.dart';
+import 'package:kbin_api/src/service/entities/report.dart';
+import 'package:kbin_api/src/service/entities/status.dart';
+import 'package:kbin_api/src/service/entities/tag.dart';
+import 'package:kbin_api/src/service/entities/token.dart';
+import 'package:kbin_api/src/service/entities/user_list.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/accounts/account_default_settings_param.dart';
+import 'package:kbin_api/src/service/v1/accounts/account_profile_meta_param.dart';
+import 'package:kbin_api/src/service/v1/accounts/accounts_v1_service.dart';
+import 'package:kbin_api/src/service/v1/accounts/post_privacy.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
@@ -56,7 +56,7 @@ void main() {
         reason: 'aaa',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Token>());
     });
@@ -131,7 +131,7 @@ void main() {
 
       final response = await accountsService.verifyAccountCredentials();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -204,7 +204,7 @@ void main() {
         ],
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -296,7 +296,7 @@ void main() {
         ),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -362,7 +362,7 @@ void main() {
         ),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -425,7 +425,7 @@ void main() {
 
       final response = await accountsService.lookupAccount(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -482,7 +482,7 @@ void main() {
 
       final response = await accountsService.lookupStatuses(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -539,7 +539,7 @@ void main() {
 
       final response = await accountsService.lookupFollowers(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -597,7 +597,7 @@ void main() {
       final response =
           await accountsService.lookupFollowings(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -655,7 +655,7 @@ void main() {
       final response =
           await accountsService.lookupFeaturedTags(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<FeaturedTag>>());
     });
@@ -713,7 +713,7 @@ void main() {
       final response =
           await accountsService.lookupContainedLists(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<UserList>>());
     });
@@ -771,7 +771,7 @@ void main() {
 
       final response = await accountsService.createFollow(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -825,7 +825,7 @@ void main() {
 
       final response = await accountsService.destroyFollow(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -879,7 +879,7 @@ void main() {
 
       final response = await accountsService.destroyFollower(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -933,7 +933,7 @@ void main() {
 
       final response = await accountsService.createBlock(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -987,7 +987,7 @@ void main() {
 
       final response = await accountsService.destroyBlock(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1041,7 +1041,7 @@ void main() {
 
       final response = await accountsService.createMute(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1095,7 +1095,7 @@ void main() {
 
       final response = await accountsService.destroyMute(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1150,7 +1150,7 @@ void main() {
       final response =
           await accountsService.createFeaturedProfile(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1207,7 +1207,7 @@ void main() {
       final response =
           await accountsService.destroyFeaturedProfile(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1264,7 +1264,7 @@ void main() {
       final response =
           await accountsService.updatePrivateComment(accountId: '1111');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -1324,7 +1324,7 @@ void main() {
       final response =
           await accountsService.lookupRelationships(accountIds: ['1', '2']);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Relationship>>());
       expect(
@@ -1396,7 +1396,7 @@ void main() {
       final response =
           await accountsService.lookupFamiliarFollowers(accountIds: ['1', '2']);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<FamiliarFollower>>());
       expect(
@@ -1475,7 +1475,7 @@ void main() {
         onlyFollowings: true,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -1556,7 +1556,7 @@ void main() {
         accountIdentifier: 'aaaaa',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Account>());
     });
@@ -1621,7 +1621,7 @@ void main() {
 
       final response = await accountsService.lookupPreferences();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<AccountPreferences>());
     });
@@ -1678,7 +1678,7 @@ void main() {
 
       final response = await accountsService.lookupOwnedFeaturedTags();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<FeaturedTag>>());
     });
@@ -1734,7 +1734,7 @@ void main() {
 
       final response = await accountsService.createFeaturedTag(tagName: 'test');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<FeaturedTag>());
     });
@@ -1787,7 +1787,7 @@ void main() {
 
       final response = await accountsService.destroyFeaturedTag(tagId: '1234');
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -1840,7 +1840,7 @@ void main() {
 
       final response = await accountsService.lookupSuggestedTags();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Tag>>());
     });
@@ -1899,7 +1899,7 @@ void main() {
 
       final response = await accountsService.lookupFollowedTags(limit: 10);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Tag>>());
     });
@@ -1960,7 +1960,7 @@ void main() {
         accountId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -2019,7 +2019,7 @@ void main() {
         tagId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Tag>());
     });
@@ -2081,7 +2081,7 @@ void main() {
         tagId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Tag>());
     });
@@ -2141,7 +2141,7 @@ void main() {
         tagId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Tag>());
     });
@@ -2201,7 +2201,7 @@ void main() {
         accountId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Report>());
     });
@@ -2264,7 +2264,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -2333,7 +2333,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -2402,7 +2402,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -2471,7 +2471,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -2540,7 +2540,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -2609,7 +2609,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -2678,7 +2678,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<String>>());
       expect(response.data, ['nsfw.social', 'artalley.social']);
@@ -2745,7 +2745,7 @@ void main() {
         domainName: 'test.com',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -2800,7 +2800,7 @@ void main() {
         ),
       );
 
-      expectMastodonException(
+      expectKbinException(
         () async => await accountsService.createBlockedDomain(
           domainName: 'test.com',
         ),
@@ -2823,7 +2823,7 @@ void main() {
         domainName: 'test.com',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -2875,7 +2875,7 @@ void main() {
         ),
       );
 
-      expectMastodonException(
+      expectKbinException(
         () async => await accountsService.destroyBlockedDomain(
           domainName: 'test.com',
         ),
@@ -2902,7 +2902,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -2968,7 +2968,7 @@ void main() {
         accountId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -3023,7 +3023,7 @@ void main() {
         ),
       );
 
-      expectMastodonException(
+      expectKbinException(
         () async => await accountsService.createBlockedDomain(
           domainName: 'test.com',
         ),
@@ -3047,7 +3047,7 @@ void main() {
         accountId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Relationship>());
     });
@@ -3102,7 +3102,7 @@ void main() {
         ),
       );
 
-      expectMastodonException(
+      expectKbinException(
         () async => await accountsService.destroyFollowRequest(
           accountId: '1234',
         ),

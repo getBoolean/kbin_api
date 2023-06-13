@@ -5,15 +5,25 @@
   "description": "",
   "email": "mastodon@fluttercommunity.dev",
   "version": "4.0.2",
-  "urls": { "streaming_api": "wss://fluttercommunity.social" },
-  "stats": { "user_count": 70, "status_count": 566, "domain_count": 3302 },
+  "urls": {
+    "streaming_api": "wss://fluttercommunity.social"
+  },
+  "stats": {
+    "user_count": 70,
+    "status_count": 566,
+    "domain_count": 3302
+  },
   "thumbnail": "https://storage.googleapis.com/media-fluttercommunity-social/site_uploads/files/000/000/002/@1x/7351cb7b2fc5a26d.png",
-  "languages": ["en"],
+  "languages": [
+    "en"
+  ],
   "registrations": false,
   "approval_required": false,
   "invites_enabled": true,
   "configuration": {
-    "accounts": { "max_featured_tags": 10 },
+    "accounts": {
+      "max_featured_tags": 10
+    },
     "statuses": {
       "max_characters": 500,
       "max_media_attachments": 4,
@@ -73,7 +83,7 @@
     "discoverable": true,
     "group": false,
     "created_at": "2022-11-11T00:00:00.000Z",
-    "note": "\u003cp\u003e💙 Flutter Community Lead •💙 Flutter Study Group •👨‍💻 Coding for 20+ years •🏢 CTO DevAngels, London •👍🏻 \u003ca href=\"https://fluttercommunity.social/tags/Flutter\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eFlutter\u003c/span\u003e\u003c/a\u003e \u003ca href=\"https://fluttercommunity.social/tags/Android\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eAndroid\u003c/span\u003e\u003c/a\u003e \u003ca href=\"https://fluttercommunity.social/tags/GoLang\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eGoLang\u003c/span\u003e\u003c/a\u003e • he/him • 🏳️‍🌈 🇬🇧\u003c/p\u003e\u003cp\u003eWhat is Mastodon? \u003ca href=\"https://tilvids.com/w/hRzMpJwSkqEK3ZTNPbSuqu\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"ellipsis\"\u003etilvids.com/w/hRzMpJwSkqEK3ZTN\u003c/span\u003e\u003cspan class=\"invisible\"\u003ePbSuqu\u003c/span\u003e\u003c/a\u003e\u003c/p\u003e\u003cp\u003eTips: \u003ca href=\"https://fedi.tips/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003efedi.tips/\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/p\u003e\u003cp\u003eLocation: London, UK\u003c/p\u003e",
+    "note": "\u003cp\u003e💙 Flutter Community Lead •💙 Flutter Study Group •👨‍💻 Coding for 20+ years •🏢 CTO DevAngels, London •👍🏻 \u003ca href=\"https://fluttercommunity.social/tags/Flutter\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eFlutter\u003c/span\u003e\u003c/a\u003e \u003ca href=\"https://fluttercommunity.social/tags/Android\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eAndroid\u003c/span\u003e\u003c/a\u003e \u003ca href=\"https://fluttercommunity.social/tags/GoLang\" class=\"mention hashtag\" rel=\"tag\"\u003e#\u003cspan\u003eGoLang\u003c/span\u003e\u003c/a\u003e • he/him • 🏳️‍🌈 🇬🇧\u003c/p\u003e\u003cp\u003eWhat is Kbin? \u003ca href=\"https://tilvids.com/w/hRzMpJwSkqEK3ZTNPbSuqu\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"ellipsis\"\u003etilvids.com/w/hRzMpJwSkqEK3ZTN\u003c/span\u003e\u003cspan class=\"invisible\"\u003ePbSuqu\u003c/span\u003e\u003c/a\u003e\u003c/p\u003e\u003cp\u003eTips: \u003ca href=\"https://fedi.tips/\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003efedi.tips/\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/p\u003e\u003cp\u003eLocation: London, UK\u003c/p\u003e",
     "url": "https://fluttercommunity.social/@simon",
     "avatar": "https://storage.googleapis.com/media-fluttercommunity-social/accounts/avatars/109/327/234/287/882/218/original/2ebb4f2e53172a82.jpg",
     "avatar_static": "https://storage.googleapis.com/media-fluttercommunity-social/accounts/avatars/109/327/234/287/882/218/original/2ebb4f2e53172a82.jpg",
@@ -124,7 +134,13 @@
       "id": "2",
       "text": "Do not post anything if they are adult content, rude or offensive statements."
     },
-    { "id": "3", "text": "Spammers will be banned." },
-    { "id": "4", "text": "Harassment of any kind is not tolerated." }
+    {
+      "id": "3",
+      "text": "Spammers will be banned."
+    },
+    {
+      "id": "4",
+      "text": "Harassment of any kind is not tolerated."
+    }
   ]
 }

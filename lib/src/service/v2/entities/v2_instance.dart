@@ -29,7 +29,7 @@ class V2Instance with _$V2Instance {
     /// The title of the website.
     required String title,
 
-    /// Admin-defined description of the Mastodon site.
+    /// Admin-defined description of the Kbin site.
     required String description,
 
     /// Usage data for this instance.
@@ -39,7 +39,7 @@ class V2Instance with _$V2Instance {
     /// in keeping with AGPL license requirements.
     required String sourceUrl,
 
-    /// The version of Mastodon installed on the instance.
+    /// The version of Kbin installed on the instance.
     required String version,
 
     /// Primary languages of the website and its staff.

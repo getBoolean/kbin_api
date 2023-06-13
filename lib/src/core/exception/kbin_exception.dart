@@ -6,16 +6,16 @@
 import 'package:http/http.dart';
 
 /// This exception indicates that an unexpected error occurred when
-/// communicating　with the Mastodon API.
-class MastodonException implements Exception {
-  /// Returns the new instance of [MastodonException].
-  MastodonException(this.message, this.response, [String? body])
+/// communicating　with the Kbin API.
+class KbinException implements Exception {
+  /// Returns the new instance of [KbinException].
+  KbinException(this.message, this.response, [String? body])
       : body = response is Response ? response.body : body;
 
   /// The error message
   final String message;
 
-  /// The response from the Mastodon API.
+  /// The response from the Kbin API.
   final BaseResponse response;
 
   /// The body of the response.
@@ -27,7 +27,7 @@ class MastodonException implements Exception {
 
   @override
   String toString() {
-    final buffer = StringBuffer()..writeln('MastodonException: $message\n');
+    final buffer = StringBuffer()..writeln('KbinException: $message\n');
 
     if (response.request != null) {
       buffer

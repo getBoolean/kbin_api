@@ -12,7 +12,7 @@ import '../../base_service.dart';
 import '../../entities/application.dart';
 import '../../entities/empty.dart';
 import '../../entities/registered_application.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class AppsV1Service {
   /// Returns the new instance of [AppsV1Service].
@@ -49,7 +49,7 @@ abstract class AppsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/apps/#create
-  Future<MastodonResponse<RegisteredApplication>> createApplication({
+  Future<KbinResponse<RegisteredApplication>> createApplication({
     required String clientName,
     String redirectUri = 'urn:ietf:wg:oauth:2.0:oob',
     List<Scope>? scopes,
@@ -73,7 +73,7 @@ abstract class AppsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/apps/#verify_credentials
-  Future<MastodonResponse<Application>> verifyApplicationCredentials({
+  Future<KbinResponse<Application>> verifyApplicationCredentials({
     required String bearerToken,
   });
 
@@ -95,7 +95,7 @@ abstract class AppsV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/emails/#confirmation
-  Future<MastodonResponse<Empty>> createNewConfirmationEmail({
+  Future<KbinResponse<Empty>> createNewConfirmationEmail({
     required String email,
   });
 }
@@ -108,7 +108,7 @@ class _AppsV1Service extends BaseService implements AppsV1Service {
   });
 
   @override
-  Future<MastodonResponse<RegisteredApplication>> createApplication({
+  Future<KbinResponse<RegisteredApplication>> createApplication({
     required String clientName,
     String redirectUri = 'urn:ietf:wg:oauth:2.0:oob',
     List<Scope>? scopes,
@@ -129,7 +129,7 @@ class _AppsV1Service extends BaseService implements AppsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Application>> verifyApplicationCredentials({
+  Future<KbinResponse<Application>> verifyApplicationCredentials({
     required String bearerToken,
   }) async =>
       super.transformSingleDataResponse(
@@ -144,7 +144,7 @@ class _AppsV1Service extends BaseService implements AppsV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> createNewConfirmationEmail({
+  Future<KbinResponse<Empty>> createNewConfirmationEmail({
     required String email,
   }) async =>
       super.transformEmptyResponse(

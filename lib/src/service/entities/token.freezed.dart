@@ -23,7 +23,7 @@ mixin _$Token {
   /// An OAuth token to be used for authorization.
   String get accessToken => throw _privateConstructorUsedError;
 
-  /// The OAuth token type. Mastodon uses Bearer tokens.
+  /// The OAuth token type. Kbin uses Bearer tokens.
   String get tokenType => throw _privateConstructorUsedError;
 
   /// The OAuth scopes granted by this token.
@@ -147,9 +147,8 @@ class _$_Token implements _Token {
       required this.tokenType,
       @JsonKey(name: 'scope')
       @ScopeConverter()
-          required final List<Scope> scopes,
-      @IntDateTimeConverter()
-          required this.createdAt})
+      required final List<Scope> scopes,
+      @IntDateTimeConverter() required this.createdAt})
       : _scopes = scopes;
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
@@ -159,7 +158,7 @@ class _$_Token implements _Token {
   @override
   final String accessToken;
 
-  /// The OAuth token type. Mastodon uses Bearer tokens.
+  /// The OAuth token type. Kbin uses Bearer tokens.
   @override
   final String tokenType;
 
@@ -225,9 +224,8 @@ abstract class _Token implements Token {
       required final String tokenType,
       @JsonKey(name: 'scope')
       @ScopeConverter()
-          required final List<Scope> scopes,
-      @IntDateTimeConverter()
-          required final DateTime createdAt}) = _$_Token;
+      required final List<Scope> scopes,
+      @IntDateTimeConverter() required final DateTime createdAt}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 
@@ -237,7 +235,7 @@ abstract class _Token implements Token {
   String get accessToken;
   @override
 
-  /// The OAuth token type. Mastodon uses Bearer tokens.
+  /// The OAuth token type. Kbin uses Bearer tokens.
   String get tokenType;
   @override
 

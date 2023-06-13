@@ -33,7 +33,7 @@ class Instance with _$Instance {
     /// An email that may be contacted for any inquiries.
     required String email,
 
-    /// The version of Mastodon installed on the instance.
+    /// The version of Kbin installed on the instance.
     required String version,
 
     /// Primary languages of the website and its staff.

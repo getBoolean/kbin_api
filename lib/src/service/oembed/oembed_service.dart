@@ -6,7 +6,7 @@ import '../../core/client/client_context.dart';
 import '../../core/client/user_context.dart';
 import '../base_service.dart';
 import '../entities/oembed_metadata.dart';
-import '../response/mastodon_response.dart';
+import '../response/kbin_response.dart';
 
 abstract class OEmbedService {
   /// Returns the new instance of [OEmbedService].
@@ -36,7 +36,7 @@ abstract class OEmbedService {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/oembed/#get
-  Future<MastodonResponse<OEmbedMetadata>> lookupOEmbedMetadata({
+  Future<KbinResponse<OEmbedMetadata>> lookupOEmbedMetadata({
     required String statusUrl,
     int? maxWidth,
     int? maxHeight,
@@ -51,7 +51,7 @@ class _OEmbedService extends BaseService implements OEmbedService {
   });
 
   @override
-  Future<MastodonResponse<OEmbedMetadata>> lookupOEmbedMetadata({
+  Future<KbinResponse<OEmbedMetadata>> lookupOEmbedMetadata({
     required String statusUrl,
     int? maxWidth,
     int? maxHeight,

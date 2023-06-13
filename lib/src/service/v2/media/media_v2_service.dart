@@ -11,7 +11,7 @@ import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
 import '../../entities/media_attachment.dart';
 import '../../entities/media_focal_points.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class MediaV2Service {
   /// Returns the new instance of [MediaV2Service].
@@ -55,7 +55,7 @@ abstract class MediaV2Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/media/#v2
-  Future<MastodonResponse<MediaAttachment>> uploadMedia({
+  Future<KbinResponse<MediaAttachment>> uploadMedia({
     required File file,
     File? thumbnail,
     String? description,
@@ -71,7 +71,7 @@ class _MediaV2Service extends BaseService implements MediaV2Service {
   });
 
   @override
-  Future<MastodonResponse<MediaAttachment>> uploadMedia({
+  Future<KbinResponse<MediaAttachment>> uploadMedia({
     required File file,
     File? thumbnail,
     String? description,

@@ -26,7 +26,7 @@ mixin _$V2Instance {
   /// The title of the website.
   String get title => throw _privateConstructorUsedError;
 
-  /// Admin-defined description of the Mastodon site.
+  /// Admin-defined description of the Kbin site.
   String get description => throw _privateConstructorUsedError;
 
   /// Usage data for this instance.
@@ -36,7 +36,7 @@ mixin _$V2Instance {
   /// in keeping with AGPL license requirements.
   String get sourceUrl => throw _privateConstructorUsedError;
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   String get version => throw _privateConstructorUsedError;
 
   /// Primary languages of the website and its staff.
@@ -361,7 +361,7 @@ class _$_V2Instance implements _V2Instance {
   @override
   final String title;
 
-  /// Admin-defined description of the Mastodon site.
+  /// Admin-defined description of the Kbin site.
   @override
   final String description;
 
@@ -374,7 +374,7 @@ class _$_V2Instance implements _V2Instance {
   @override
   final String sourceUrl;
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   @override
   final String version;
 
@@ -507,7 +507,7 @@ abstract class _V2Instance implements V2Instance {
   String get title;
   @override
 
-  /// Admin-defined description of the Mastodon site.
+  /// Admin-defined description of the Kbin site.
   String get description;
   @override
 
@@ -520,7 +520,7 @@ abstract class _V2Instance implements V2Instance {
   String get sourceUrl;
   @override
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   String get version;
   @override
 

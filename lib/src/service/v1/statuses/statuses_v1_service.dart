@@ -16,7 +16,7 @@ import '../../entities/status.dart';
 import '../../entities/status_context.dart';
 import '../../entities/status_edit.dart';
 import '../../entities/status_source.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 import 'status_poll_param.dart';
 
 abstract class StatusesV1Service {
@@ -73,7 +73,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#create
-  Future<MastodonResponse<Status>> createStatus({
+  Future<KbinResponse<Status>> createStatus({
     required String text,
     String? spoilerText,
     String? inReplyToStatusId,
@@ -105,7 +105,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#delete
-  Future<MastodonResponse<Status>> destroyStatus({
+  Future<KbinResponse<Status>> destroyStatus({
     required String statusId,
   });
 
@@ -151,7 +151,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#edit
-  Future<MastodonResponse<Status>> updateStatus({
+  Future<KbinResponse<Status>> updateStatus({
     required String statusId,
     required String text,
     String? spoilerText,
@@ -184,7 +184,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#history
-  Future<MastodonResponse<List<StatusEdit>>> lookupEditHistory({
+  Future<KbinResponse<List<StatusEdit>>> lookupEditHistory({
     required String statusId,
   });
 
@@ -209,12 +209,12 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#source
-  Future<MastodonResponse<StatusSource>> lookupEditableSource({
+  Future<KbinResponse<StatusSource>> lookupEditableSource({
     required String statusId,
   });
 
   @Deprecated('Use lookupPoll instead. Will be removed in v1.0.0')
-  Future<MastodonResponse<Poll>> lookupPollById({required String pollId});
+  Future<KbinResponse<Poll>> lookupPollById({required String pollId});
 
   /// Returns a specific poll.
   ///
@@ -238,7 +238,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/polls/#get
-  Future<MastodonResponse<Poll>> lookupPoll({required String pollId});
+  Future<KbinResponse<Poll>> lookupPoll({required String pollId});
 
   /// Post a vote to specific choice.
   ///
@@ -263,7 +263,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/polls/#vote
-  Future<MastodonResponse<Poll>> createVote({
+  Future<KbinResponse<Poll>> createVote({
     required String pollId,
     required int choice,
   });
@@ -291,13 +291,13 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/polls/#vote
-  Future<MastodonResponse<Poll>> createVotes({
+  Future<KbinResponse<Poll>> createVotes({
     required String pollId,
     required List<int> choices,
   });
 
   @Deprecated('Use lookupStatus instead. Will be removed in v1.0.0')
-  Future<MastodonResponse<Status>> lookupById({
+  Future<KbinResponse<Status>> lookupById({
     required String statusId,
   });
 
@@ -322,7 +322,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#get
-  Future<MastodonResponse<Status>> lookupStatus({
+  Future<KbinResponse<Status>> lookupStatus({
     required String statusId,
   });
 
@@ -347,7 +347,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#context
-  Future<MastodonResponse<StatusContext>> lookupStatusContext({
+  Future<KbinResponse<StatusContext>> lookupStatusContext({
     required String statusId,
   });
 
@@ -380,7 +380,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#reblogged_by
-  Future<MastodonResponse<List<Account>>> lookupRebloggedUsers({
+  Future<KbinResponse<List<Account>>> lookupRebloggedUsers({
     required String statusId,
     String? maxStatusId,
     String? minStatusId,
@@ -417,7 +417,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#favourited_by
-  Future<MastodonResponse<List<Account>>> lookupFavouritedUsers({
+  Future<KbinResponse<List<Account>>> lookupFavouritedUsers({
     required String statusId,
     String? maxStatusId,
     String? minStatusId,
@@ -446,7 +446,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#favourite
-  Future<MastodonResponse<Status>> createFavourite({
+  Future<KbinResponse<Status>> createFavourite({
     required String statusId,
   });
 
@@ -471,7 +471,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#unfavourite
-  Future<MastodonResponse<Status>> destroyFavourite({
+  Future<KbinResponse<Status>> destroyFavourite({
     required String statusId,
   });
 
@@ -496,7 +496,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#reblog
-  Future<MastodonResponse<Status>> createReblog({
+  Future<KbinResponse<Status>> createReblog({
     required String statusId,
   });
 
@@ -521,7 +521,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#unreblog
-  Future<MastodonResponse<Status>> destroyReblog({
+  Future<KbinResponse<Status>> destroyReblog({
     required String statusId,
   });
 
@@ -546,7 +546,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#bookmark
-  Future<MastodonResponse<Status>> createBookmark({
+  Future<KbinResponse<Status>> createBookmark({
     required String statusId,
   });
 
@@ -571,7 +571,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#unbookmark
-  Future<MastodonResponse<Status>> destroyBookmark({
+  Future<KbinResponse<Status>> destroyBookmark({
     required String statusId,
   });
 
@@ -597,7 +597,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#mute
-  Future<MastodonResponse<Status>> createMute({
+  Future<KbinResponse<Status>> createMute({
     required String statusId,
   });
 
@@ -623,7 +623,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#unmute
-  Future<MastodonResponse<Status>> destroyMute({
+  Future<KbinResponse<Status>> destroyMute({
     required String statusId,
   });
 
@@ -649,7 +649,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#pin
-  Future<MastodonResponse<Status>> createPinnedStatus({
+  Future<KbinResponse<Status>> createPinnedStatus({
     required String statusId,
   });
 
@@ -675,7 +675,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#unpin
-  Future<MastodonResponse<Status>> destroyPinnedStatus({
+  Future<KbinResponse<Status>> destroyPinnedStatus({
     required String statusId,
   });
 
@@ -727,7 +727,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/statuses/#create
-  Future<MastodonResponse<ScheduledStatus>> createScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> createScheduledStatus({
     required String text,
     required DateTime schedule,
     String? spoilerText,
@@ -767,7 +767,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/scheduled_statuses/#get
-  Future<MastodonResponse<List<ScheduledStatus>>> lookupScheduledStatuses({
+  Future<KbinResponse<List<ScheduledStatus>>> lookupScheduledStatuses({
     String? maxStatusId,
     String? minStatusId,
     String? sinceStatusId,
@@ -795,7 +795,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/scheduled_statuses/#get-one
-  Future<MastodonResponse<ScheduledStatus>> lookupScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> lookupScheduledStatus({
     required String statusId,
   });
 
@@ -823,7 +823,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/scheduled_statuses/#update
-  Future<MastodonResponse<ScheduledStatus>> updateScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> updateScheduledStatus({
     required String statusId,
     required DateTime schedule,
   });
@@ -849,7 +849,7 @@ abstract class StatusesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/scheduled_statuses/#cancel
-  Future<MastodonResponse<Empty>> destroyScheduledStatus({
+  Future<KbinResponse<Empty>> destroyScheduledStatus({
     required String statusId,
   });
 }
@@ -862,7 +862,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
   });
 
   @override
-  Future<MastodonResponse<Status>> createStatus({
+  Future<KbinResponse<Status>> createStatus({
     required String text,
     String? spoilerText,
     String? inReplyToStatusId,
@@ -896,7 +896,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyStatus({
+  Future<KbinResponse<Status>> destroyStatus({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -908,7 +908,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> updateStatus({
+  Future<KbinResponse<Status>> updateStatus({
     required String statusId,
     required String text,
     String? spoilerText,
@@ -939,7 +939,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<StatusEdit>>> lookupEditHistory({
+  Future<KbinResponse<List<StatusEdit>>> lookupEditHistory({
     required String statusId,
   }) async =>
       super.transformMultiDataResponse(
@@ -951,7 +951,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<StatusSource>> lookupEditableSource({
+  Future<KbinResponse<StatusSource>> lookupEditableSource({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -963,13 +963,13 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Poll>> lookupPollById({
+  Future<KbinResponse<Poll>> lookupPollById({
     required String pollId,
   }) async =>
       await lookupPoll(pollId: pollId);
 
   @override
-  Future<MastodonResponse<Poll>> lookupPoll({
+  Future<KbinResponse<Poll>> lookupPoll({
     required String pollId,
   }) async =>
       super.transformSingleDataResponse(
@@ -981,7 +981,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Poll>> createVote({
+  Future<KbinResponse<Poll>> createVote({
     required String pollId,
     required int choice,
   }) async =>
@@ -991,7 +991,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Poll>> createVotes({
+  Future<KbinResponse<Poll>> createVotes({
     required String pollId,
     required List<int> choices,
   }) async =>
@@ -1000,7 +1000,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
         choices: choices,
       );
 
-  Future<MastodonResponse<Poll>> _createVote({
+  Future<KbinResponse<Poll>> _createVote({
     required String pollId,
     required List<int> choices,
   }) async =>
@@ -1016,13 +1016,13 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> lookupById({
+  Future<KbinResponse<Status>> lookupById({
     required String statusId,
   }) async =>
       await lookupStatus(statusId: statusId);
 
   @override
-  Future<MastodonResponse<Status>> lookupStatus({
+  Future<KbinResponse<Status>> lookupStatus({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1034,7 +1034,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<StatusContext>> lookupStatusContext({
+  Future<KbinResponse<StatusContext>> lookupStatusContext({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1046,7 +1046,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupRebloggedUsers({
+  Future<KbinResponse<List<Account>>> lookupRebloggedUsers({
     required String statusId,
     String? maxStatusId,
     String? minStatusId,
@@ -1068,7 +1068,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupFavouritedUsers({
+  Future<KbinResponse<List<Account>>> lookupFavouritedUsers({
     required String statusId,
     String? maxStatusId,
     String? minStatusId,
@@ -1090,7 +1090,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> createFavourite({
+  Future<KbinResponse<Status>> createFavourite({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1102,7 +1102,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyFavourite({
+  Future<KbinResponse<Status>> destroyFavourite({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1114,7 +1114,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> createReblog({
+  Future<KbinResponse<Status>> createReblog({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1126,7 +1126,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyReblog(
+  Future<KbinResponse<Status>> destroyReblog(
           {required String statusId}) async =>
       super.transformSingleDataResponse(
         await super.post(
@@ -1137,7 +1137,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> createBookmark({
+  Future<KbinResponse<Status>> createBookmark({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1149,7 +1149,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyBookmark({
+  Future<KbinResponse<Status>> destroyBookmark({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1161,7 +1161,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> createMute({
+  Future<KbinResponse<Status>> createMute({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1173,7 +1173,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyMute({
+  Future<KbinResponse<Status>> destroyMute({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1185,7 +1185,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> createPinnedStatus({
+  Future<KbinResponse<Status>> createPinnedStatus({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1197,7 +1197,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Status>> destroyPinnedStatus({
+  Future<KbinResponse<Status>> destroyPinnedStatus({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1209,7 +1209,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<ScheduledStatus>> createScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> createScheduledStatus({
     required String text,
     required DateTime schedule,
     String? spoilerText,
@@ -1245,7 +1245,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<ScheduledStatus>>> lookupScheduledStatuses({
+  Future<KbinResponse<List<ScheduledStatus>>> lookupScheduledStatuses({
     String? maxStatusId,
     String? minStatusId,
     String? sinceStatusId,
@@ -1266,7 +1266,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<ScheduledStatus>> lookupScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> lookupScheduledStatus({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -1278,7 +1278,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<ScheduledStatus>> updateScheduledStatus({
+  Future<KbinResponse<ScheduledStatus>> updateScheduledStatus({
     required String statusId,
     required DateTime schedule,
   }) async =>
@@ -1294,7 +1294,7 @@ class _StatusesV1Service extends BaseService implements StatusesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyScheduledStatus({
+  Future<KbinResponse<Empty>> destroyScheduledStatus({
     required String statusId,
   }) async =>
       super.transformEmptyResponse(

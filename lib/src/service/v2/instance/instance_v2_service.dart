@@ -6,7 +6,7 @@
 import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 import '../entities/v2_instance.dart';
 
 abstract class InstanceV2Service {
@@ -34,7 +34,7 @@ abstract class InstanceV2Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#v2
-  Future<MastodonResponse<V2Instance>> lookupInformation();
+  Future<KbinResponse<V2Instance>> lookupInformation();
 }
 
 class _InstanceV2Service extends BaseService implements InstanceV2Service {
@@ -45,7 +45,7 @@ class _InstanceV2Service extends BaseService implements InstanceV2Service {
   });
 
   @override
-  Future<MastodonResponse<V2Instance>> lookupInformation() async =>
+  Future<KbinResponse<V2Instance>> lookupInformation() async =>
       super.transformSingleDataResponse(
         await super.get(
           UserContext.oauth2OrAnonymous,

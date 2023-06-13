@@ -2,11 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/service/entities/oembed_metadata.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/oembed/oembed_service.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/service/entities/oembed_metadata.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/oembed/oembed_service.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
 import 'package:test/test.dart';
 
 import '../../../mocks/client_context_stubs.dart' as context;
@@ -32,7 +32,7 @@ void main() {
         statusUrl: 'https://test.com',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<OEmbedMetadata>());
     });

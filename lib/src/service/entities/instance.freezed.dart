@@ -32,7 +32,7 @@ mixin _$Instance {
   /// An email that may be contacted for any inquiries.
   String get email => throw _privateConstructorUsedError;
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   String get version => throw _privateConstructorUsedError;
 
   /// Primary languages of the website and its staff.
@@ -379,7 +379,7 @@ class _$_Instance implements _Instance {
   @override
   final String email;
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   @override
   final String version;
 
@@ -515,15 +515,13 @@ abstract class _Instance implements Instance {
       required final String email,
       required final String version,
       required final List<Language> languages,
-      @JsonKey(name: 'stats')
-          required final InstanceStatistics statistics,
+      @JsonKey(name: 'stats') required final InstanceStatistics statistics,
       final String? thumbnail,
       @JsonKey(name: 'registrations')
-          required final bool isRegistrationsEnabled,
+      required final bool isRegistrationsEnabled,
       @JsonKey(name: 'approval_required')
-          required final bool isApprovalRequired,
-      @JsonKey(name: 'invites_enabled')
-          required final bool isInvitesEnabled,
+      required final bool isApprovalRequired,
+      @JsonKey(name: 'invites_enabled') required final bool isInvitesEnabled,
       final InstanceConfiguration? configuration,
       final Account? contactAccount,
       final List<Rule>? rules}) = _$_Instance;
@@ -548,7 +546,7 @@ abstract class _Instance implements Instance {
   String get email;
   @override
 
-  /// The version of Mastodon installed on the instance.
+  /// The version of Kbin installed on the instance.
   String get version;
   @override
 

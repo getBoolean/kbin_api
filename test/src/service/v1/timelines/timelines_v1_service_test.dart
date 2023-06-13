@@ -3,15 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/service/entities/conversation.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/notification_snapshot.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/entities/status.dart';
-import 'package:mastodon_api/src/service/entities/status_snapshot.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/timelines/timelines_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/service/entities/conversation.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/notification_snapshot.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/entities/status.dart';
+import 'package:kbin_api/src/service/entities/status_snapshot.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/timelines/timelines_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -50,7 +50,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -85,7 +85,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -156,7 +156,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
       expect(response.data, []);
@@ -195,7 +195,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -231,7 +231,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -307,7 +307,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
       expect(response.data, []);
@@ -339,7 +339,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -404,7 +404,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
       expect(response.data, []);
@@ -437,7 +437,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
     });
@@ -503,7 +503,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Status>>());
       expect(response.data, []);
@@ -527,7 +527,7 @@ void main() {
 
       final response = await timelinesService.lookupConversations(limit: 10);
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Conversation>>());
     });
@@ -588,7 +588,7 @@ void main() {
         conversationId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -646,7 +646,7 @@ void main() {
         conversationId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Conversation>());
     });
@@ -707,7 +707,7 @@ void main() {
 
       final response = await timelinesService.lookupStatusSnapshot();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<StatusSnapshot>());
     });
@@ -770,7 +770,7 @@ void main() {
 
       final response = await timelinesService.lookupNotificationSnapshot();
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<NotificationSnapshot>());
     });
@@ -832,7 +832,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<StatusSnapshot>());
     });
@@ -892,7 +892,7 @@ void main() {
         notificationId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<NotificationSnapshot>());
     });

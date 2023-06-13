@@ -11,7 +11,7 @@ import '../../entities/empty.dart';
 import '../../entities/notification_snapshot.dart';
 import '../../entities/status.dart';
 import '../../entities/status_snapshot.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 
 abstract class TimelinesV1Service {
   /// Returns the new instance of [TimelinesV1Service].
@@ -58,7 +58,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/timelines/#public
-  Future<MastodonResponse<List<Status>>> lookupPublicTimeline({
+  Future<KbinResponse<List<Status>>> lookupPublicTimeline({
     bool? onlyLocal,
     bool? onlyRemote,
     bool? onlyMedia,
@@ -104,7 +104,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/timelines/#tag
-  Future<MastodonResponse<List<Status>>> lookupTimelineByHashtag({
+  Future<KbinResponse<List<Status>>> lookupTimelineByHashtag({
     required String hashtag,
     bool? onlyLocal,
     bool? onlyRemote,
@@ -142,7 +142,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/timelines/#home
-  Future<MastodonResponse<List<Status>>> lookupHomeTimeline({
+  Future<KbinResponse<List<Status>>> lookupHomeTimeline({
     String? maxStatusId,
     String? minStatusId,
     String? sinceStatusId,
@@ -178,7 +178,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/timelines/#list
-  Future<MastodonResponse<List<Status>>> lookupListTimeline({
+  Future<KbinResponse<List<Status>>> lookupListTimeline({
     required String listId,
     String? maxStatusId,
     String? minStatusId,
@@ -208,7 +208,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/conversations/#get
-  Future<MastodonResponse<List<Conversation>>> lookupConversations({
+  Future<KbinResponse<List<Conversation>>> lookupConversations({
     int? limit,
   });
 
@@ -233,7 +233,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/conversations/#delete
-  Future<MastodonResponse<Empty>> destroyConversation({
+  Future<KbinResponse<Empty>> destroyConversation({
     required String conversationId,
   });
 
@@ -258,7 +258,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/conversations/#read
-  Future<MastodonResponse<Conversation>> createMarkConversationAsRead({
+  Future<KbinResponse<Conversation>> createMarkConversationAsRead({
     required String conversationId,
   });
 
@@ -279,7 +279,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/markers/#get
-  Future<MastodonResponse<StatusSnapshot>> lookupStatusSnapshot();
+  Future<KbinResponse<StatusSnapshot>> lookupStatusSnapshot();
 
   /// Get saved timeline notification position.
   ///
@@ -298,7 +298,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/markers/#get
-  Future<MastodonResponse<NotificationSnapshot>> lookupNotificationSnapshot();
+  Future<KbinResponse<NotificationSnapshot>> lookupNotificationSnapshot();
 
   /// Get saved timeline notification position.
   ///
@@ -321,7 +321,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/markers/#create
-  Future<MastodonResponse<StatusSnapshot>> createStatusSnapshot({
+  Future<KbinResponse<StatusSnapshot>> createStatusSnapshot({
     required String statusId,
   });
 
@@ -346,7 +346,7 @@ abstract class TimelinesV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/markers/#create
-  Future<MastodonResponse<NotificationSnapshot>> createNotificationSnapshot({
+  Future<KbinResponse<NotificationSnapshot>> createNotificationSnapshot({
     required String notificationId,
   });
 }
@@ -359,7 +359,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
   });
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupPublicTimeline({
+  Future<KbinResponse<List<Status>>> lookupPublicTimeline({
     bool? onlyLocal,
     bool? onlyRemote,
     bool? onlyMedia,
@@ -386,7 +386,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupTimelineByHashtag({
+  Future<KbinResponse<List<Status>>> lookupTimelineByHashtag({
     required String hashtag,
     bool? onlyLocal,
     bool? onlyRemote,
@@ -414,7 +414,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupHomeTimeline({
+  Future<KbinResponse<List<Status>>> lookupHomeTimeline({
     String? maxStatusId,
     String? minStatusId,
     String? sinceStatusId,
@@ -435,7 +435,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupListTimeline({
+  Future<KbinResponse<List<Status>>> lookupListTimeline({
     required String listId,
     String? maxStatusId,
     String? minStatusId,
@@ -457,7 +457,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Conversation>>> lookupConversations({
+  Future<KbinResponse<List<Conversation>>> lookupConversations({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -472,7 +472,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyConversation({
+  Future<KbinResponse<Empty>> destroyConversation({
     required String conversationId,
   }) async =>
       super.transformEmptyResponse(
@@ -483,7 +483,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<Conversation>> createMarkConversationAsRead({
+  Future<KbinResponse<Conversation>> createMarkConversationAsRead({
     required String conversationId,
   }) async =>
       super.transformSingleDataResponse(
@@ -495,7 +495,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<StatusSnapshot>> lookupStatusSnapshot() async =>
+  Future<KbinResponse<StatusSnapshot>> lookupStatusSnapshot() async =>
       super.transformSingleDataResponse(
         await super.get(
           UserContext.oauth2Only,
@@ -508,7 +508,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<NotificationSnapshot>>
+  Future<KbinResponse<NotificationSnapshot>>
       lookupNotificationSnapshot() async => super.transformSingleDataResponse(
             await super.get(
               UserContext.oauth2Only,
@@ -521,7 +521,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
           );
 
   @override
-  Future<MastodonResponse<StatusSnapshot>> createStatusSnapshot({
+  Future<KbinResponse<StatusSnapshot>> createStatusSnapshot({
     required String statusId,
   }) async =>
       super.transformSingleDataResponse(
@@ -538,7 +538,7 @@ class _TimelinesV1Service extends BaseService implements TimelinesV1Service {
       );
 
   @override
-  Future<MastodonResponse<NotificationSnapshot>> createNotificationSnapshot({
+  Future<KbinResponse<NotificationSnapshot>> createNotificationSnapshot({
     required String notificationId,
   }) async =>
       super.transformSingleDataResponse(

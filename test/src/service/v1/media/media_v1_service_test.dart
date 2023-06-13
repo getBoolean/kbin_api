@@ -4,14 +4,14 @@
 
 import 'dart:io';
 
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/core/exception/mastodon_exception.dart';
-import 'package:mastodon_api/src/core/exception/pending_exception.dart';
-import 'package:mastodon_api/src/service/entities/media_attachment.dart';
-import 'package:mastodon_api/src/service/entities/media_focal_points.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/media/media_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/core/exception/pending_exception.dart';
+import 'package:kbin_api/src/service/entities/media_attachment.dart';
+import 'package:kbin_api/src/service/entities/media_focal_points.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/media/media_v1_service.dart';
 import 'package:test/test.dart';
 
 import '../../../../mocks/client_context_stubs.dart' as context;
@@ -42,7 +42,7 @@ void main() {
         focus: MediaFocalPoints(x: 1.0, y: -1.0),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<MediaAttachment>());
     });
@@ -106,9 +106,9 @@ void main() {
         ),
         throwsA(
           allOf(
-            isA<MastodonException>(),
+            isA<KbinException>(),
             predicate(
-              (MastodonException e) =>
+              (KbinException e) =>
                   e.message ==
                   'Required parameter is missing or improperly formatted.',
             ),
@@ -135,7 +135,7 @@ void main() {
         mediaId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<MediaAttachment>());
     });
@@ -243,7 +243,7 @@ void main() {
         focus: MediaFocalPoints(x: 1.0, y: -1.0),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<MediaAttachment>());
     });

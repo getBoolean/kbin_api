@@ -1,33 +1,6 @@
 <p align="center">
-  <a href="https://github.com/mastodon-dart/mastodon-api">
-    <img alt="mastodon_api" width="600px" src="https://user-images.githubusercontent.com/13072231/202892481-5b9c8a39-ef55-4dca-a912-e298beb635ca.png">
-  </a>
+  <b>The Easiest and Powerful Dart/Flutter Library for Kbin API 🎯</b>
 </p>
-
-<p align="center">
-  <b>The Easiest and Powerful Dart/Flutter Library for Mastodon API 🎯</b>
-</p>
-
----
-
-[![GitHub Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4)](https://github.com/sponsors/myConsciousness)
-[![GitHub Sponsor](https://img.shields.io/static/v1?label=Maintainer&message=myConsciousness&logo=GitHub&color=00acee)](https://github.com/myConsciousness)
-
-[![pub package](https://img.shields.io/pub/v/mastodon_api.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/mastodon_api)
-[![Dart SDK Version](https://badgen.net/pub/sdk-version/mastodon_api)](https://pub.dev/packages/mastodon_api/)
-[![Test](https://github.com/mastodon-dart/mastodon-api/actions/workflows/test.yml/badge.svg)](https://github.com/mastodon-dart/mastodon-api/actions/workflows/test.yml)
-[![Analyzer](https://github.com/mastodon-dart/mastodon-api/actions/workflows/analyzer.yml/badge.svg)](https://github.com/mastodon-dart/mastodon-api/actions/workflows/analyzer.yml)
-[![codecov](https://codecov.io/gh/mastodon-dart/mastodon-api/branch/main/graph/badge.svg?token=J5GT1PF9Y3)](https://codecov.io/gh/mastodon-dart/mastodon-api)
-[![Issues](https://img.shields.io/github/issues/mastodon-dart/mastodon-api?logo=github&logoColor=white)](https://github.com/mastodon-dart/mastodon-api/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/mastodon-dart/mastodon-api?logo=github&logoColor=white)](https://github.com/mastodon-dart/mastodon-api/pulls)
-[![Stars](https://img.shields.io/github/stars/mastodon-dart/mastodon-api?logo=github&logoColor=white)](https://github.com/mastodon-dart/mastodon-api)
-[![Contributors](https://img.shields.io/github/contributors/mastodon-dart/mastodon-api)](https://github.com/mastodon-dart/mastodon-api/graphs/contributors)
-[![Code size](https://img.shields.io/github/languages/code-size/mastodon-dart/mastodon-api?logo=github&logoColor=white)](https://github.com/mastodon-dart/mastodon-api)
-[![Last Commits](https://img.shields.io/github/last-commit/mastodon-dart/mastodon-api?logo=git&logoColor=white)](https://github.com/mastodon-dart/mastodon-api/commits/main)
-[![License](https://img.shields.io/github/license/mastodon-dart/mastodon-api?logo=open-source-initiative&logoColor=green)](https://github.com/mastodon-dart/mastodon-api/blob/main/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/mastodon-dart/mastodon-api/blob/main/CODE_OF_CONDUCT.md)
-
----
 
 <!-- TOC -->
 
@@ -83,17 +56,17 @@
 
 # 1. Guide 🌎
 
-This library provides the easiest way to use [Mastodon API](https://docs.joinmastodon.org/client/intro/) in **Dart** and **Flutter** apps.
+This library provides the easiest way to use [Kbin API](https://docs.joinmastodon.org/client/intro/) in **Dart** and **Flutter** apps.
 
 This library was designed and developed by **_Kato Shinya_** ([@myConsciousness](https://github.com/myConsciousness)), the author of [twitter_api_v2](https://pub.dev/packages/twitter_api_v2), and many parts are adapted from [twitter_api_v2](https://pub.dev/packages/twitter_api_v2).
 
 **Show some ❤️ and star the repo to support the project.**
 
-We also provide [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2) for easy [OAuth 2.0](https://docs.joinmastodon.org/spec/oauth/) when using the Mastodon API!
+We also provide [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2) for easy [OAuth 2.0](https://docs.joinmastodon.org/spec/oauth/) when using the Kbin API!
 
 ## 1.1. Features 💎
 
-✅ The **wrapper library** for **[Mastodon API](https://docs.joinmastodon.org/client/intro/)**. </br>
+✅ The **wrapper library** for **[Kbin API](https://docs.joinmastodon.org/client/intro/)**. </br>
 ✅ **Easily integrates** with the **Dart** & **Flutter** apps. </br>
 ✅ Provides response objects with a **guaranteed safe types.** </br>
 ✅ **Well documented** and **well tested**.</br>
@@ -106,30 +79,30 @@ We also provide [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2) for 
 **With Dart:**
 
 ```bash
- dart pub add mastodon_api
+ dart pub add kbin_api
 ```
 
 **Or With Flutter:**
 
 ```bash
- flutter pub add mastodon_api
+ flutter pub add kbin_api
 ```
 
 ### 1.2.2. Import
 
 ```dart
-import 'package:mastodon_api/mastodon_api';
+import 'package:kbin_api/kbin_api';
 ```
 
 ### 1.2.3. Implementation
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
   //! You need to specify mastodon instance (domain) you want to access.
   //! Also you need to get bearer token from your developer page, or OAuth 2.0.
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_BEARER_TOKEN',
 
@@ -163,7 +136,7 @@ Future<void> main() async {
     print(e);
   } on RateLimitExceededException catch (e) {
     print(e);
-  } on MastodonException catch (e) {
+  } on KbinException catch (e) {
     print(e.response);
     print(e.body);
     print(e);
@@ -177,36 +150,36 @@ Future<void> main() async {
 
 #### 1.3.1.1. v1
 
-| **Endpoint**                                                                                                              | **Method Name**                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v1/instance (deprecated)](https://docs.joinmastodon.org/methods/instance/#v1)                                   | [lookupInformation](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupInformation.html)                                                                                                                                                      |
-| [GET /api/v1/instance/peers](https://docs.joinmastodon.org/methods/instance/#peers)                                       | [lookupConnectedDomains](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupConnectedDomains.html)                                                                                                                                            |
-| [GET /api/v1/instance/activity](https://docs.joinmastodon.org/methods/instance/#activity)                                 | [lookupWeeklyActivities](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupWeeklyActivities.html)                                                                                                                                            |
-| [GET /api/v1/instance/rules](https://docs.joinmastodon.org/methods/instance/#rules)                                       | [lookupRules](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupRules.html)                                                                                                                                                                  |
-| [GET /api/v1/instance/domain_block](https://docs.joinmastodon.org/methods/instance/#domain_blocks)                        | [lookupBlockedDomains](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupBlockedDomains.html)                                                                                                                                                |
-| [GET /api/v1/example](https://docs.joinmastodon.org/methods/instance/#extended_description)                               | [lookupExtendedDescription](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupExtendedDescription.html)                                                                                                                                      |
-| [GET /api/v1/announcements](https://docs.joinmastodon.org/methods/announcements/#get)                                     | [lookupAnnouncements](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupAnnouncements.html)</br>[lookupActiveAnnouncements](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupActiveAnnouncements.html) |
-| [POST /api/v1/announcements/:id/dismiss](https://docs.joinmastodon.org/methods/announcements/#dismiss)                    | [createMarkAnnouncementAsRead](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/createMarkAnnouncementAsRead.html)                                                                                                                                |
-| [PUT /api/v1/announcements/:id/reactions/:name](https://docs.joinmastodon.org/methods/announcements/#put-reactions)       | [createReactionToAnnouncement](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/createReactionToAnnouncement.html)                                                                                                                                |
-| [DELETE /api/v1/announcements/:id/reactions/:name](https://docs.joinmastodon.org/methods/announcements/#delete-reactions) | [destroyReactionToAnnouncement](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/destroyReactionToAnnouncement.html)                                                                                                                              |
-| [GET /api/v1/custom_emojis](https://docs.joinmastodon.org/methods/custom_emojis/#get)                                     | [lookupAvailableEmoji](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupAvailableEmoji.html)                                                                                                                                                |
-| [GET /api/v1/directory](https://docs.joinmastodon.org/methods/directory/#get)                                             | [lookupAccounts](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupAccounts.html)                                                                                                                                                            |
+| **Endpoint**                                                                                                              | **Method Name**                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/v1/instance (deprecated)](https://docs.joinmastodon.org/methods/instance/#v1)                                   | [lookupInformation](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupInformation.html)                                                                                                                                              |
+| [GET /api/v1/instance/peers](https://docs.joinmastodon.org/methods/instance/#peers)                                       | [lookupConnectedDomains](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupConnectedDomains.html)                                                                                                                                    |
+| [GET /api/v1/instance/activity](https://docs.joinmastodon.org/methods/instance/#activity)                                 | [lookupWeeklyActivities](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupWeeklyActivities.html)                                                                                                                                    |
+| [GET /api/v1/instance/rules](https://docs.joinmastodon.org/methods/instance/#rules)                                       | [lookupRules](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupRules.html)                                                                                                                                                          |
+| [GET /api/v1/instance/domain_block](https://docs.joinmastodon.org/methods/instance/#domain_blocks)                        | [lookupBlockedDomains](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupBlockedDomains.html)                                                                                                                                        |
+| [GET /api/v1/example](https://docs.joinmastodon.org/methods/instance/#extended_description)                               | [lookupExtendedDescription](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupExtendedDescription.html)                                                                                                                              |
+| [GET /api/v1/announcements](https://docs.joinmastodon.org/methods/announcements/#get)                                     | [lookupAnnouncements](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupAnnouncements.html)</br>[lookupActiveAnnouncements](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupActiveAnnouncements.html) |
+| [POST /api/v1/announcements/:id/dismiss](https://docs.joinmastodon.org/methods/announcements/#dismiss)                    | [createMarkAnnouncementAsRead](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/createMarkAnnouncementAsRead.html)                                                                                                                        |
+| [PUT /api/v1/announcements/:id/reactions/:name](https://docs.joinmastodon.org/methods/announcements/#put-reactions)       | [createReactionToAnnouncement](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/createReactionToAnnouncement.html)                                                                                                                        |
+| [DELETE /api/v1/announcements/:id/reactions/:name](https://docs.joinmastodon.org/methods/announcements/#delete-reactions) | [destroyReactionToAnnouncement](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/destroyReactionToAnnouncement.html)                                                                                                                      |
+| [GET /api/v1/custom_emojis](https://docs.joinmastodon.org/methods/custom_emojis/#get)                                     | [lookupAvailableEmoji](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupAvailableEmoji.html)                                                                                                                                        |
+| [GET /api/v1/directory](https://docs.joinmastodon.org/methods/directory/#get)                                             | [lookupAccounts](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupAccounts.html)                                                                                                                                                    |
 
 #### 1.3.1.2. v2
 
-| **Endpoint**                                                               | **Method Name**                                                                                                              |
-| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v2/instance](https://docs.joinmastodon.org/methods/instance/#v2) | [lookupInformation](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/InstanceV1Service/lookupInformation.html) |
+| **Endpoint**                                                               | **Method Name**                                                                                                      |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/v2/instance](https://docs.joinmastodon.org/methods/instance/#v2) | [lookupInformation](https://pub.dev/documentation/kbin_api/latest/kbin_api/InstanceV1Service/lookupInformation.html) |
 
 ### 1.3.2. Apps Service
 
 #### 1.3.2.1. v1
 
-| **Endpoint**                                                                                          | **Method Name**                                                                                                                            |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| [POST /api/v1/apps](https://docs.joinmastodon.org/methods/apps/#create)                               | [createApplication](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AppsV1Service/createApplication.html)                   |
-| [GET /api/v1/apps/verify_credentials](https://docs.joinmastodon.org/methods/apps/#verify_credentials) | [verifyOAuthCredentials](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AppsV1Service/verifyOAuthCredentials.html)         |
-| [POST /api/v1/emails/confirmation](https://docs.joinmastodon.org/methods/emails/#confirmation)        | [createNewConfirmationEmail](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AppsV1Service/createNewConfirmationEmail.html) |
+| **Endpoint**                                                                                          | **Method Name**                                                                                                                    |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [POST /api/v1/apps](https://docs.joinmastodon.org/methods/apps/#create)                               | [createApplication](https://pub.dev/documentation/kbin_api/latest/kbin_api/AppsV1Service/createApplication.html)                   |
+| [GET /api/v1/apps/verify_credentials](https://docs.joinmastodon.org/methods/apps/#verify_credentials) | [verifyOAuthCredentials](https://pub.dev/documentation/kbin_api/latest/kbin_api/AppsV1Service/verifyOAuthCredentials.html)         |
+| [POST /api/v1/emails/confirmation](https://docs.joinmastodon.org/methods/emails/#confirmation)        | [createNewConfirmationEmail](https://pub.dev/documentation/kbin_api/latest/kbin_api/AppsV1Service/createNewConfirmationEmail.html) |
 
 #### 1.3.2.2. v2
 
@@ -216,119 +189,119 @@ Future<void> main() async {
 
 #### 1.3.3.2. v2
 
-| **Endpoint**                                                           | **Method Name**                                                                                                     |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v2/search](https://docs.joinmastodon.org/methods/search/#v2) | [searchContents](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/SarchV2Service/searchContents.html) |
+| **Endpoint**                                                           | **Method Name**                                                                                             |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [GET /api/v2/search](https://docs.joinmastodon.org/methods/search/#v2) | [searchContents](https://pub.dev/documentation/kbin_api/latest/kbin_api/SarchV2Service/searchContents.html) |
 
 ### 1.3.4. Accounts Service
 
 #### 1.3.4.1. v1
 
-| **Endpoint**                                                                                                             | **Method Name**                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [POST /api/v1/accounts](https://docs.joinmastodon.org/methods/accounts/#create)                                          | [createAccount](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createAccount.html)                                         |
-| [GET /api/v1/accounts/verify_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)            | [verifyAccountCredentials](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/verifyAccountCredentials.html)                   |
-| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateAccount](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/updateAccount.html)                                         |
-| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateAvatarImage](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/updateAvatarImage.html)                                 |
-| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateHeaderImage](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/updateHeaderImage.html)                                 |
-| [GET /api/v1/accounts/:id](https://docs.joinmastodon.org/methods/accounts/#get)                                          | [lookupAccount](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupAccount.html)                                         |
-| [GET /api/v1/accounts/:id/statuses](https://docs.joinmastodon.org/methods/accounts/#statuses)                            | [lookupStatuses](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupStatuses.html)                                       |
-| [GET /api/v1/accounts/:id/followers](https://docs.joinmastodon.org/methods/accounts/#followers)                          | [lookupFollowers](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFollowers.html)                                     |
-| [GET /api/v1/accounts/:id/following](https://docs.joinmastodon.org/methods/accounts/#following)                          | [lookupFollowings](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFollowings.html)                                   |
-| [GET /api/v1/accounts/:id/featured_tags](https://docs.joinmastodon.org/methods/accounts/#featured_tags)                  | [lookupFeaturedTags](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFeaturedTags.html)                               |
-| [GET /api/v1/accounts/:id/lists](https://docs.joinmastodon.org/methods/accounts/#lists)                                  | [lookupContainedLists](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupContainedLists.html)                           |
-| [POST /api/v1/accounts/:id/follow](https://docs.joinmastodon.org/methods/accounts/#follow)                               | [createFollow](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createFollow.html)                                           |
-| [POST /api/v1/accounts/:id/unfollow](https://docs.joinmastodon.org/methods/accounts/#unfollow)                           | [destroyFollow](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFollow.html)                                         |
-| [POST /api/v1/accounts/:id/remove_from_followers](https://docs.joinmastodon.org/methods/accounts/#remove_from_followers) | [destroyFollower](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFollower.html)                                     |
-| [POST /api/v1/accounts/:id/block](https://docs.joinmastodon.org/methods/accounts/#block)                                 | [createBlock](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createBlock.html)                                             |
-| [POST /api/v1/accounts/:id/unblock](https://docs.joinmastodon.org/methods/accounts/#unblock)                             | [destroyBlock](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyBlock.html)                                           |
-| [POST /api/v1/accounts/:id/mute](https://docs.joinmastodon.org/methods/accounts/#mute)                                   | [createMute](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createMute.html)                                               |
-| [POST /api/v1/accounts/:id/unmute](https://docs.joinmastodon.org/methods/accounts/#unmute)                               | [destroyMute](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyMute.html)                                             |
-| [POST /api/v1/accounts/:id/pin](https://docs.joinmastodon.org/methods/accounts/#pin)                                     | [createFeaturedProfile](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createFeaturedProfile.html)                         |
-| [POST /api/v1/accounts/:id/unpin](https://docs.joinmastodon.org/methods/accounts/#unpin)                                 | [destroyFeaturedProfile](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFeaturedProfile.html)                       |
-| [POST /api/v1/accounts/:id/note](https://docs.joinmastodon.org/methods/accounts/#note)                                   | [updatePrivateComment](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/updatePrivateComment.html)                           |
-| [GET /api/v1/accounts/relationships](https://docs.joinmastodon.org/methods/accounts/#relationships)                      | [lookupRelationships](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupRelationships.html)                             |
-| [GET /api/v1/accounts/familiar_followers](https://docs.joinmastodon.org/methods/accounts/#familiar_followers)            | [lookupFamiliarFollowers](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFamiliarFollowers.html)                     |
-| [GET /api/v1/accounts/search](https://docs.joinmastodon.org/methods/accounts/#search)                                    | [searchAccounts](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/searchAccounts.html)                                       |
-| [GET /api/v1/accounts/lookup](https://docs.joinmastodon.org/methods/accounts/#lookup)                                    | [lookupAccountFromWebFingerAddress](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupAccountFromWebFingerAddress.html) |
-| [GET /api/v1/preferences](https://docs.joinmastodon.org/methods/preferences/#get)                                        | [lookupPreferences](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupPreferences.html)                                 |
-| [GET /api/v1/featured_tags](https://docs.joinmastodon.org/methods/featured_tags/#get)                                    | [lookupOwnedFeaturedTags](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupOwnedFeaturedTags.html)                     |
-| [POST /api/v1/featured_tags](https://docs.joinmastodon.org/methods/featured_tags/#feature)                               | [createFeaturedTag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createFeaturedTag.html)                                 |
-| [DELETE /api/v1/featured_tags/:id](https://docs.joinmastodon.org/methods/featured_tags/#unfeature-a-tag-unfeature)       | [destroyFeaturedTag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFeaturedTag.html)                               |
-| [GET /api/v1/featured_tags/suggestions](https://docs.joinmastodon.org/methods/featured_tags/#suggestions)                | [lookupSuggestedTags](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupSuggestedTags.html)                             |
-| [GET /api/v1/followed_tags](https://docs.joinmastodon.org/methods/followed_tags/#get)                                    | [lookupFollowedTags](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFollowedTags.html)                               |
-| [DELETE /api/v1/suggestions/:account_id](https://docs.joinmastodon.org/methods/suggestions/#remove)                      | [destroyFollowSuggestion](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFollowSuggestion.html)                     |
-| [GET /api/v1/tags/:id](https://docs.joinmastodon.org/methods/tags/#get)                                                  | [lookupTag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupTag.html)                                                 |
-| [POST /api/v1/tags/:id/follow](https://docs.joinmastodon.org/methods/tags/#follow)                                       | [createFollowingTag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createFollowingTag.html)                               |
-| [POST /api/v1/tags/:id/unfollow](https://docs.joinmastodon.org/methods/tags/#unfollow)                                   | [destroyFollowingTag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFollowingTag.html)                             |
-| [POST /api/v1/reports](https://docs.joinmastodon.org/methods/reports/#post)                                              | [createReport](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createReport.html)                                           |
-| [GET /api/v1/endorsements](https://docs.joinmastodon.org/methods/endorsements/#get)                                      | [lookupFeaturedProfiles](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFeaturedProfiles.html)                       |
-| [GET /api/v1/mutes](https://docs.joinmastodon.org/methods/mutes/#get)                                                    | [lookupMutedAccounts](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupMutedAccounts.html)                             |
-| [GET /api/v1/favourites](https://docs.joinmastodon.org/methods/favourites/#get)                                          | [lookupFavouritedStatuses](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFavouritedStatuses.html)                   |
-| [GET /api/v1/blocks](https://docs.joinmastodon.org/methods/blocks/#get)                                                  | [lookupBlockedAccounts](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupBlockedAccounts.html)                         |
-| [GET /api/v1/bookmarks](https://docs.joinmastodon.org/methods/bookmarks/#get)                                            | [lookupBookmarkedStatuses](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupBookmarkedStatuses.html)                   |
-| [GET /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#get)                                    | [lookupBlockedDomains](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupBlockedDomains.html)                           |
-| [POST /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#block)                                 | [createBlockedDomain](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createBlockedDomain.html)                             |
-| [DELETE /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#unblock)                             | [destroyBlockedDomain](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyBlockedDomain.html)                           |
-| [GET /api/v1/follow_requests](https://docs.joinmastodon.org/methods/follow_requests/#get)                                | [lookupFollowRequests](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/lookupFollowRequests.html)                           |
-| [POST /api/v1/follow_requests/:account_id/authorize](https://docs.joinmastodon.org/methods/follow_requests/#accept)      | [createFollower](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/createFollower.html)                                       |
-| [POST /api/v1/follow_requests/:account_id/reject](https://docs.joinmastodon.org/methods/follow_requests/#reject)         | [destroyFollowRequest](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV1Service/destroyFollowRequest.html)                           |
+| **Endpoint**                                                                                                             | **Method Name**                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [POST /api/v1/accounts](https://docs.joinmastodon.org/methods/accounts/#create)                                          | [createAccount](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createAccount.html)                                         |
+| [GET /api/v1/accounts/verify_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)            | [verifyAccountCredentials](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/verifyAccountCredentials.html)                   |
+| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateAccount](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/updateAccount.html)                                         |
+| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateAvatarImage](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/updateAvatarImage.html)                                 |
+| [PATCH /api/v1/accounts/update_credentials](https://docs.joinmastodon.org/methods/accounts/#verify_credentials)          | [updateHeaderImage](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/updateHeaderImage.html)                                 |
+| [GET /api/v1/accounts/:id](https://docs.joinmastodon.org/methods/accounts/#get)                                          | [lookupAccount](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupAccount.html)                                         |
+| [GET /api/v1/accounts/:id/statuses](https://docs.joinmastodon.org/methods/accounts/#statuses)                            | [lookupStatuses](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupStatuses.html)                                       |
+| [GET /api/v1/accounts/:id/followers](https://docs.joinmastodon.org/methods/accounts/#followers)                          | [lookupFollowers](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFollowers.html)                                     |
+| [GET /api/v1/accounts/:id/following](https://docs.joinmastodon.org/methods/accounts/#following)                          | [lookupFollowings](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFollowings.html)                                   |
+| [GET /api/v1/accounts/:id/featured_tags](https://docs.joinmastodon.org/methods/accounts/#featured_tags)                  | [lookupFeaturedTags](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFeaturedTags.html)                               |
+| [GET /api/v1/accounts/:id/lists](https://docs.joinmastodon.org/methods/accounts/#lists)                                  | [lookupContainedLists](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupContainedLists.html)                           |
+| [POST /api/v1/accounts/:id/follow](https://docs.joinmastodon.org/methods/accounts/#follow)                               | [createFollow](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createFollow.html)                                           |
+| [POST /api/v1/accounts/:id/unfollow](https://docs.joinmastodon.org/methods/accounts/#unfollow)                           | [destroyFollow](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFollow.html)                                         |
+| [POST /api/v1/accounts/:id/remove_from_followers](https://docs.joinmastodon.org/methods/accounts/#remove_from_followers) | [destroyFollower](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFollower.html)                                     |
+| [POST /api/v1/accounts/:id/block](https://docs.joinmastodon.org/methods/accounts/#block)                                 | [createBlock](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createBlock.html)                                             |
+| [POST /api/v1/accounts/:id/unblock](https://docs.joinmastodon.org/methods/accounts/#unblock)                             | [destroyBlock](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyBlock.html)                                           |
+| [POST /api/v1/accounts/:id/mute](https://docs.joinmastodon.org/methods/accounts/#mute)                                   | [createMute](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createMute.html)                                               |
+| [POST /api/v1/accounts/:id/unmute](https://docs.joinmastodon.org/methods/accounts/#unmute)                               | [destroyMute](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyMute.html)                                             |
+| [POST /api/v1/accounts/:id/pin](https://docs.joinmastodon.org/methods/accounts/#pin)                                     | [createFeaturedProfile](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createFeaturedProfile.html)                         |
+| [POST /api/v1/accounts/:id/unpin](https://docs.joinmastodon.org/methods/accounts/#unpin)                                 | [destroyFeaturedProfile](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFeaturedProfile.html)                       |
+| [POST /api/v1/accounts/:id/note](https://docs.joinmastodon.org/methods/accounts/#note)                                   | [updatePrivateComment](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/updatePrivateComment.html)                           |
+| [GET /api/v1/accounts/relationships](https://docs.joinmastodon.org/methods/accounts/#relationships)                      | [lookupRelationships](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupRelationships.html)                             |
+| [GET /api/v1/accounts/familiar_followers](https://docs.joinmastodon.org/methods/accounts/#familiar_followers)            | [lookupFamiliarFollowers](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFamiliarFollowers.html)                     |
+| [GET /api/v1/accounts/search](https://docs.joinmastodon.org/methods/accounts/#search)                                    | [searchAccounts](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/searchAccounts.html)                                       |
+| [GET /api/v1/accounts/lookup](https://docs.joinmastodon.org/methods/accounts/#lookup)                                    | [lookupAccountFromWebFingerAddress](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupAccountFromWebFingerAddress.html) |
+| [GET /api/v1/preferences](https://docs.joinmastodon.org/methods/preferences/#get)                                        | [lookupPreferences](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupPreferences.html)                                 |
+| [GET /api/v1/featured_tags](https://docs.joinmastodon.org/methods/featured_tags/#get)                                    | [lookupOwnedFeaturedTags](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupOwnedFeaturedTags.html)                     |
+| [POST /api/v1/featured_tags](https://docs.joinmastodon.org/methods/featured_tags/#feature)                               | [createFeaturedTag](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createFeaturedTag.html)                                 |
+| [DELETE /api/v1/featured_tags/:id](https://docs.joinmastodon.org/methods/featured_tags/#unfeature-a-tag-unfeature)       | [destroyFeaturedTag](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFeaturedTag.html)                               |
+| [GET /api/v1/featured_tags/suggestions](https://docs.joinmastodon.org/methods/featured_tags/#suggestions)                | [lookupSuggestedTags](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupSuggestedTags.html)                             |
+| [GET /api/v1/followed_tags](https://docs.joinmastodon.org/methods/followed_tags/#get)                                    | [lookupFollowedTags](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFollowedTags.html)                               |
+| [DELETE /api/v1/suggestions/:account_id](https://docs.joinmastodon.org/methods/suggestions/#remove)                      | [destroyFollowSuggestion](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFollowSuggestion.html)                     |
+| [GET /api/v1/tags/:id](https://docs.joinmastodon.org/methods/tags/#get)                                                  | [lookupTag](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupTag.html)                                                 |
+| [POST /api/v1/tags/:id/follow](https://docs.joinmastodon.org/methods/tags/#follow)                                       | [createFollowingTag](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createFollowingTag.html)                               |
+| [POST /api/v1/tags/:id/unfollow](https://docs.joinmastodon.org/methods/tags/#unfollow)                                   | [destroyFollowingTag](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFollowingTag.html)                             |
+| [POST /api/v1/reports](https://docs.joinmastodon.org/methods/reports/#post)                                              | [createReport](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createReport.html)                                           |
+| [GET /api/v1/endorsements](https://docs.joinmastodon.org/methods/endorsements/#get)                                      | [lookupFeaturedProfiles](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFeaturedProfiles.html)                       |
+| [GET /api/v1/mutes](https://docs.joinmastodon.org/methods/mutes/#get)                                                    | [lookupMutedAccounts](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupMutedAccounts.html)                             |
+| [GET /api/v1/favourites](https://docs.joinmastodon.org/methods/favourites/#get)                                          | [lookupFavouritedStatuses](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFavouritedStatuses.html)                   |
+| [GET /api/v1/blocks](https://docs.joinmastodon.org/methods/blocks/#get)                                                  | [lookupBlockedAccounts](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupBlockedAccounts.html)                         |
+| [GET /api/v1/bookmarks](https://docs.joinmastodon.org/methods/bookmarks/#get)                                            | [lookupBookmarkedStatuses](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupBookmarkedStatuses.html)                   |
+| [GET /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#get)                                    | [lookupBlockedDomains](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupBlockedDomains.html)                           |
+| [POST /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#block)                                 | [createBlockedDomain](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createBlockedDomain.html)                             |
+| [DELETE /api/v1/domain_blocks](https://docs.joinmastodon.org/methods/domain_blocks/#unblock)                             | [destroyBlockedDomain](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyBlockedDomain.html)                           |
+| [GET /api/v1/follow_requests](https://docs.joinmastodon.org/methods/follow_requests/#get)                                | [lookupFollowRequests](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/lookupFollowRequests.html)                           |
+| [POST /api/v1/follow_requests/:account_id/authorize](https://docs.joinmastodon.org/methods/follow_requests/#accept)      | [createFollower](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/createFollower.html)                                       |
+| [POST /api/v1/follow_requests/:account_id/reject](https://docs.joinmastodon.org/methods/follow_requests/#reject)         | [destroyFollowRequest](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV1Service/destroyFollowRequest.html)                           |
 
 #### 1.3.4.2. v2
 
-| **Endpoint**                                                                     | **Method Name**                                                                                                                          |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v2/suggestions](https://docs.joinmastodon.org/methods/suggestions/#v2) | [lookupFollowSuggestions](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/AccountsV2Service/lookupFollowSuggestions.html) |
+| **Endpoint**                                                                     | **Method Name**                                                                                                                  |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/v2/suggestions](https://docs.joinmastodon.org/methods/suggestions/#v2) | [lookupFollowSuggestions](https://pub.dev/documentation/kbin_api/latest/kbin_api/AccountsV2Service/lookupFollowSuggestions.html) |
 
 ### 1.3.5. Timelines Service
 
 #### 1.3.5.1. v1
 
-| **Endpoint**                                                                                     | **Method Name**                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v1/timelines/public](https://docs.joinmastodon.org/methods/timelines/#public)          | [lookupPublicTimeline](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupPublicTimeline.html)                 |
-| [GET /api/v1/timelines/tag/:hashtag](https://docs.joinmastodon.org/methods/timelines/#tag)       | [lookupTimelineByHashtag](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupTimelineByHashtag.html)           |
-| [GET /api/v1/timelines/home](https://docs.joinmastodon.org/methods/timelines/#home)              | [lookupHomeTimeline](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupHomeTimeline.html)                     |
-| [GET /api/v1/timelines/list/:list_id](https://docs.joinmastodon.org/methods/timelines/#list)     | [lookupListTimeline](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupListTimeline.html)                     |
-| [GET /api/v1/conversations](https://docs.joinmastodon.org/methods/conversations/#get)            | [lookupConversations](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupConversations.html)                   |
-| [DELETE /api/v1/conversations/:id](https://docs.joinmastodon.org/methods/conversations/#delete)  | [destroyConversation](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/destroyConversation.html)                   |
-| [POST /api/v1/conversations/:id/read](https://docs.joinmastodon.org/methods/conversations/#read) | [createMarkConversationAsRead](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/createMarkConversationAsRead.html) |
-| [GET /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#get)                        | [lookupStatusSnapshot](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupStatusSnapshot.html)                 |
-| [GET /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#get)                        | [lookupNotificationSnapshot](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/lookupNotificationSnapshot.html)     |
-| [POST /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#create)                    | [createStatusSnapshot](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/createStatusSnapshot.html)                 |
-| [POST /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#create)                    | [createNotificationSnapshot](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/TimelinesV1Service/createNotificationSnapshot.html)     |
+| **Endpoint**                                                                                     | **Method Name**                                                                                                                             |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/v1/timelines/public](https://docs.joinmastodon.org/methods/timelines/#public)          | [lookupPublicTimeline](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupPublicTimeline.html)                 |
+| [GET /api/v1/timelines/tag/:hashtag](https://docs.joinmastodon.org/methods/timelines/#tag)       | [lookupTimelineByHashtag](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupTimelineByHashtag.html)           |
+| [GET /api/v1/timelines/home](https://docs.joinmastodon.org/methods/timelines/#home)              | [lookupHomeTimeline](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupHomeTimeline.html)                     |
+| [GET /api/v1/timelines/list/:list_id](https://docs.joinmastodon.org/methods/timelines/#list)     | [lookupListTimeline](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupListTimeline.html)                     |
+| [GET /api/v1/conversations](https://docs.joinmastodon.org/methods/conversations/#get)            | [lookupConversations](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupConversations.html)                   |
+| [DELETE /api/v1/conversations/:id](https://docs.joinmastodon.org/methods/conversations/#delete)  | [destroyConversation](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/destroyConversation.html)                   |
+| [POST /api/v1/conversations/:id/read](https://docs.joinmastodon.org/methods/conversations/#read) | [createMarkConversationAsRead](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/createMarkConversationAsRead.html) |
+| [GET /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#get)                        | [lookupStatusSnapshot](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupStatusSnapshot.html)                 |
+| [GET /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#get)                        | [lookupNotificationSnapshot](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/lookupNotificationSnapshot.html)     |
+| [POST /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#create)                    | [createStatusSnapshot](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/createStatusSnapshot.html)                 |
+| [POST /api/v1/markers](https://docs.joinmastodon.org/methods/markers/#create)                    | [createNotificationSnapshot](https://pub.dev/documentation/kbin_api/latest/kbin_api/TimelinesV1Service/createNotificationSnapshot.html)     |
 
 ### 1.3.6. Statuses Service
 
 #### 1.3.6.1. v1
 
-| **Endpoint**                                                                                              | **Method Name**                                                                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [POST /api/v1/statuses](https://docs.joinmastodon.org/methods/statuses/#create)                           | [createStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createStatus.html)                                                                                                                  |
-| [GET /api/v1/polls/:id](https://docs.joinmastodon.org/methods/polls/#get)                                 | [lookupPollById](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupPollById.html)                                                                                                              |
-| [POST /api/v1/polls/:id/votes](https://docs.joinmastodon.org/methods/polls/#get)                          | [createVote](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createVote.html)</br>[createVotes](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createVotes.html) |
-| [GET /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#get)                           | [lookupStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupStatus.html)                                                                                                                  |
-| [DELETE /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#delete)                     | [destroyStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyStatus.html)                                                                                                                |
-| [GET /api/v1/statuses/:id/context](https://docs.joinmastodon.org/methods/statuses/#context)               | [lookupStatusContext](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupStatusContext.html)                                                                                                    |
-| [GET /api/v1/statuses/:id/reblogged_by](https://docs.joinmastodon.org/methods/statuses/#reblogged_by)     | [lookupRebloggedUsers](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupRebloggedUsers.html)                                                                                                  |
-| [GET /api/v1/statuses/:id/favourited_by](https://docs.joinmastodon.org/methods/statuses/#favourited_by)   | [lookupFavouritedUsers](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupFavouritedUsers.html)                                                                                                |
-| [POST /api/v1/statuses/:id/favourite](https://docs.joinmastodon.org/methods/statuses/#favourite)          | [createFavourite](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createFavourite.html)                                                                                                            |
-| [POST /api/v1/statuses/:id/unfavourite](https://docs.joinmastodon.org/methods/statuses/#unfavourite)      | [destroyFavourite](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyFavourite.html)                                                                                                          |
-| [POST /api/v1/statuses/:id/reblog](https://docs.joinmastodon.org/methods/statuses/#reblog)                | [createReblog](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createReblog.html)                                                                                                                  |
-| [POST /api/v1/statuses/:id/unreblog](https://docs.joinmastodon.org/methods/statuses/#unreblog)            | [destroyReblog](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyReblog.html)                                                                                                                |
-| [POST /api/v1/statuses/:id/bookmark](https://docs.joinmastodon.org/methods/statuses/#bookmark)            | [createBookmark](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createBookmark.html)                                                                                                              |
-| [POST /api/v1/statuses/:id/unbookmark](https://docs.joinmastodon.org/methods/statuses/#unbookmark)        | [destroyBookmark](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyBookmark.html)                                                                                                            |
-| [POST /api/v1/statuses/:id/mute](https://docs.joinmastodon.org/methods/statuses/#mute)                    | [createMute](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createMute.html)                                                                                                                      |
-| [POST /api/v1/statuses/:id/unmute](https://docs.joinmastodon.org/methods/statuses/#unmute)                | [destroyMute](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyMute.html)                                                                                                                    |
-| [POST /api/v1/statuses/:id/pin](https://docs.joinmastodon.org/methods/statuses/#pin)                      | [createPinnedStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/createPinnedStatus.html)                                                                                                      |
-| [POST /api/v1/statuses/:id/unpin](https://docs.joinmastodon.org/methods/statuses/#unpin)                  | [destroyPinnedStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyPinnedStatus.html)                                                                                                    |
-| [PUT /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#edit)                          | [updateStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/updateStatus.html)                                                                                                                  |
-| [GET /api/v1/statuses/:id/history](https://docs.joinmastodon.org/methods/statuses/#history)               | [lookupEditHistory](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupEditHistory.html)                                                                                                        |
-| [GET /api/v1/statuses/:id/source](https://docs.joinmastodon.org/methods/statuses/#source)                 | [lookupEditableSource](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupEditableSource.html)                                                                                                  |
-| [GET /api/v1/scheduled_statuses](https://docs.joinmastodon.org/methods/scheduled_statuses/#get)           | [lookupScheduledStatuses](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupScheduledStatuses.html)                                                                                            |
-| [GET /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#get-one)   | [lookupScheduledStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/lookupScheduledStatus.html)                                                                                                |
-| [PUT /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#update)    | [updateScheduledStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/updateScheduledStatus.html)                                                                                                |
-| [DELETE /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#cancel) | [destroyScheduledStatus](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/StatusesV1Service/destroyScheduledStatus.html)                                                                                              |
+| **Endpoint**                                                                                              | **Method Name**                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [POST /api/v1/statuses](https://docs.joinmastodon.org/methods/statuses/#create)                           | [createStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createStatus.html)                                                                                                          |
+| [GET /api/v1/polls/:id](https://docs.joinmastodon.org/methods/polls/#get)                                 | [lookupPollById](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupPollById.html)                                                                                                      |
+| [POST /api/v1/polls/:id/votes](https://docs.joinmastodon.org/methods/polls/#get)                          | [createVote](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createVote.html)</br>[createVotes](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createVotes.html) |
+| [GET /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#get)                           | [lookupStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupStatus.html)                                                                                                          |
+| [DELETE /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#delete)                     | [destroyStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyStatus.html)                                                                                                        |
+| [GET /api/v1/statuses/:id/context](https://docs.joinmastodon.org/methods/statuses/#context)               | [lookupStatusContext](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupStatusContext.html)                                                                                            |
+| [GET /api/v1/statuses/:id/reblogged_by](https://docs.joinmastodon.org/methods/statuses/#reblogged_by)     | [lookupRebloggedUsers](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupRebloggedUsers.html)                                                                                          |
+| [GET /api/v1/statuses/:id/favourited_by](https://docs.joinmastodon.org/methods/statuses/#favourited_by)   | [lookupFavouritedUsers](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupFavouritedUsers.html)                                                                                        |
+| [POST /api/v1/statuses/:id/favourite](https://docs.joinmastodon.org/methods/statuses/#favourite)          | [createFavourite](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createFavourite.html)                                                                                                    |
+| [POST /api/v1/statuses/:id/unfavourite](https://docs.joinmastodon.org/methods/statuses/#unfavourite)      | [destroyFavourite](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyFavourite.html)                                                                                                  |
+| [POST /api/v1/statuses/:id/reblog](https://docs.joinmastodon.org/methods/statuses/#reblog)                | [createReblog](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createReblog.html)                                                                                                          |
+| [POST /api/v1/statuses/:id/unreblog](https://docs.joinmastodon.org/methods/statuses/#unreblog)            | [destroyReblog](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyReblog.html)                                                                                                        |
+| [POST /api/v1/statuses/:id/bookmark](https://docs.joinmastodon.org/methods/statuses/#bookmark)            | [createBookmark](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createBookmark.html)                                                                                                      |
+| [POST /api/v1/statuses/:id/unbookmark](https://docs.joinmastodon.org/methods/statuses/#unbookmark)        | [destroyBookmark](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyBookmark.html)                                                                                                    |
+| [POST /api/v1/statuses/:id/mute](https://docs.joinmastodon.org/methods/statuses/#mute)                    | [createMute](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createMute.html)                                                                                                              |
+| [POST /api/v1/statuses/:id/unmute](https://docs.joinmastodon.org/methods/statuses/#unmute)                | [destroyMute](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyMute.html)                                                                                                            |
+| [POST /api/v1/statuses/:id/pin](https://docs.joinmastodon.org/methods/statuses/#pin)                      | [createPinnedStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/createPinnedStatus.html)                                                                                              |
+| [POST /api/v1/statuses/:id/unpin](https://docs.joinmastodon.org/methods/statuses/#unpin)                  | [destroyPinnedStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyPinnedStatus.html)                                                                                            |
+| [PUT /api/v1/statuses/:id](https://docs.joinmastodon.org/methods/statuses/#edit)                          | [updateStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/updateStatus.html)                                                                                                          |
+| [GET /api/v1/statuses/:id/history](https://docs.joinmastodon.org/methods/statuses/#history)               | [lookupEditHistory](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupEditHistory.html)                                                                                                |
+| [GET /api/v1/statuses/:id/source](https://docs.joinmastodon.org/methods/statuses/#source)                 | [lookupEditableSource](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupEditableSource.html)                                                                                          |
+| [GET /api/v1/scheduled_statuses](https://docs.joinmastodon.org/methods/scheduled_statuses/#get)           | [lookupScheduledStatuses](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupScheduledStatuses.html)                                                                                    |
+| [GET /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#get-one)   | [lookupScheduledStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/lookupScheduledStatus.html)                                                                                        |
+| [PUT /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#update)    | [updateScheduledStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/updateScheduledStatus.html)                                                                                        |
+| [DELETE /api/v1/scheduled_statuses/:id](https://docs.joinmastodon.org/methods/scheduled_statuses/#cancel) | [destroyScheduledStatus](https://pub.dev/documentation/kbin_api/latest/kbin_api/StatusesV1Service/destroyScheduledStatus.html)                                                                                      |
 
 #### 1.3.6.2. v2
 
@@ -336,12 +309,12 @@ Future<void> main() async {
 
 #### 1.3.7.1. v1
 
-| **Endpoint**                                                                                           | **Method Name**                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GET /api/v1/notifications](https://docs.joinmastodon.org/methods/notifications/#get)                  | [lookupNotifications](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/NotificationsV1Service/lookupNotifications.html)         |
-| [GET /api/v1/notification/:id](https://docs.joinmastodon.org/methods/notifications/#get-one)           | [lookupNotification](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/NotificationsV1Service/lookupNotification.html)           |
-| [POST /api/v1/notifications/clear](https://docs.joinmastodon.org/methods/notifications/#clear)         | [destroyAllNotifications](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/NotificationsV1Service/destroyAllNotifications.html) |
-| [POST /api/v1/notifications/:id/dismiss](https://docs.joinmastodon.org/methods/notifications/#dismiss) | [destroyNotification](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/NotificationsV1Service/destroyNotification.html)         |
+| **Endpoint**                                                                                           | **Method Name**                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/v1/notifications](https://docs.joinmastodon.org/methods/notifications/#get)                  | [lookupNotifications](https://pub.dev/documentation/kbin_api/latest/kbin_api/NotificationsV1Service/lookupNotifications.html)         |
+| [GET /api/v1/notification/:id](https://docs.joinmastodon.org/methods/notifications/#get-one)           | [lookupNotification](https://pub.dev/documentation/kbin_api/latest/kbin_api/NotificationsV1Service/lookupNotification.html)           |
+| [POST /api/v1/notifications/clear](https://docs.joinmastodon.org/methods/notifications/#clear)         | [destroyAllNotifications](https://pub.dev/documentation/kbin_api/latest/kbin_api/NotificationsV1Service/destroyAllNotifications.html) |
+| [POST /api/v1/notifications/:id/dismiss](https://docs.joinmastodon.org/methods/notifications/#dismiss) | [destroyNotification](https://pub.dev/documentation/kbin_api/latest/kbin_api/NotificationsV1Service/destroyNotification.html)         |
 
 #### 1.3.7.2. v2
 
@@ -349,9 +322,9 @@ Future<void> main() async {
 
 #### 1.3.8.1. v1
 
-| **Endpoint**                                                         | **Method Name**                                                                                                                |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| [GET /api/oembed](https://docs.joinmastodon.org/methods/oembed/#get) | [lookupOEmbedMetadata](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/OEmbedService/lookupOEmbedMetadata.html) |
+| **Endpoint**                                                         | **Method Name**                                                                                                        |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [GET /api/oembed](https://docs.joinmastodon.org/methods/oembed/#get) | [lookupOEmbedMetadata](https://pub.dev/documentation/kbin_api/latest/kbin_api/OEmbedService/lookupOEmbedMetadata.html) |
 
 #### 1.3.8.2. v2
 
@@ -359,23 +332,23 @@ Future<void> main() async {
 
 #### 1.3.9.1. v1
 
-| **Endpoint**                                                                       | **Method Name**                                                                                               |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [POST /api/v1/media (deprecated)](https://docs.joinmastodon.org/methods/media/#v1) | [uploadMedia](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MediaV1Service/uploadMedia.html) |
-| [GET /api/v1/media/:id](https://docs.joinmastodon.org/methods/media/#get)          | [lookupMedia](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MediaV1Service/lookupMedia.html) |
-| [PUT /api/v1/media/:id](https://docs.joinmastodon.org/methods/media/#update)       | [updateMedia](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MediaV1Service/updateMedia.html) |
+| **Endpoint**                                                                       | **Method Name**                                                                                       |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [POST /api/v1/media (deprecated)](https://docs.joinmastodon.org/methods/media/#v1) | [uploadMedia](https://pub.dev/documentation/kbin_api/latest/kbin_api/MediaV1Service/uploadMedia.html) |
+| [GET /api/v1/media/:id](https://docs.joinmastodon.org/methods/media/#get)          | [lookupMedia](https://pub.dev/documentation/kbin_api/latest/kbin_api/MediaV1Service/lookupMedia.html) |
+| [PUT /api/v1/media/:id](https://docs.joinmastodon.org/methods/media/#update)       | [updateMedia](https://pub.dev/documentation/kbin_api/latest/kbin_api/MediaV1Service/updateMedia.html) |
 
 #### 1.3.9.2. v2
 
-| **Endpoint**                                                          | **Method Name**                                                                                               |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [POST /api/v2/media](https://docs.joinmastodon.org/methods/media/#v2) | [uploadMedia](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MediaV2Service/uploadMedia.html) |
+| **Endpoint**                                                          | **Method Name**                                                                                       |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [POST /api/v2/media](https://docs.joinmastodon.org/methods/media/#v2) | [uploadMedia](https://pub.dev/documentation/kbin_api/latest/kbin_api/MediaV2Service/uploadMedia.html) |
 
 ## 1.4. Tips 🏄
 
 ### 1.4.1. Method Names
 
-**mastodon_api** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
+**kbin_api** uses the following standard prefixes depending on endpoint characteristics. So it's very easy to find the method corresponding to the endpoint you want to use!
 
 | Prefix      | Description                                                                                       |
 | ----------- | ------------------------------------------------------------------------------------------------- |
@@ -398,10 +371,10 @@ It means the parameters specified with a null value are safely removed and ignor
 For example, arguments specified with null are ignored in the following request.
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_BEARER_TOKEN',
   );
@@ -418,11 +391,11 @@ Future<void> main() async {
 
 ### 1.4.3. OAuth 2.0 Authorization Code Flow
 
-**Mastodon API** supports authentication methods with [OAuth 2.0](https://docs.joinmastodon.org/methods/oauth/), and it allows users of apps using **Mastodon API** to request authorization for the minimum necessary [scope](https://docs.joinmastodon.org/api/oauth-scopes/) of operation.
+**Kbin API** supports authentication methods with [OAuth 2.0](https://docs.joinmastodon.org/methods/oauth/), and it allows users of apps using **Kbin API** to request authorization for the minimum necessary [scope](https://docs.joinmastodon.org/api/oauth-scopes/) of operation.
 
-Since **OAuth2.0** authentication requires going through a browser, **mastodon_api** does not provide this specification for compatibility with CLI applications. Instead, we provide [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2), a library for Flutter apps.
+Since **OAuth2.0** authentication requires going through a browser, **kbin_api** does not provide this specification for compatibility with CLI applications. Instead, we provide [mastodon_oauth2](https://pub.dev/packages/mastodon_oauth2), a library for Flutter apps.
 
-The **mastodon_oauth2** is 100% compatible with **mastodon_api** and can be used. You can see more details from links below.
+The **mastodon_oauth2** is 100% compatible with **kbin_api** and can be used. You can see more details from links below.
 
 - [Repository](https://github.com/mastodon-dart/mastodon-oauth2)
 - [Pub.dev](https://pub.dev/packages/mastodon_oauth2)
@@ -434,10 +407,10 @@ The library specifies a default timeout of **10 seconds** for all API communicat
 However, there may be times when you wish to specify an arbitrary timeout duration. If there is such a demand, an arbitrary timeout duration can be specified as follows.
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() {
- final mastodon = MastodonApi(
+ final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_TOKEN_HERE',
 
@@ -451,11 +424,11 @@ Future<void> main() {
 
 Due to the nature of this library's communication with external systems, timeouts may occur due to inevitable communication failures or temporary crashes of the server to which requests are sent.
 
-When such timeouts occur, an effective countermeasure in many cases is to send the request again after a certain interval. And **mastodon_api** provides an **automatic retry** feature as a solution to this problem.
+When such timeouts occur, an effective countermeasure in many cases is to send the request again after a certain interval. And **kbin_api** provides an **automatic retry** feature as a solution to this problem.
 
 Also, errors subject to retry are as follows.
 
-- When the status code of the response returned from Mastodon is `500` or `503`.
+- When the status code of the response returned from Kbin is `500` or `503`.
 - When the network is temporarily lost and a `SocketException` is thrown.
 - When communication times out temporarily and a `TimeoutException` is thrown
 
@@ -465,13 +438,13 @@ Although the algorithm introduced earlier that exponentially increases the retry
 
 This problem can be solved by adding a random number called **Jitter**, and this method is called the **Exponential Backoff and Jitter** algorithm. By adding a random number to the exponentially increasing retry interval, the retry interval can be distributed more flexibly.
 
-Similar to the previous example, **mastodon_api** can be implemented as follows.
+Similar to the previous example, **kbin_api** can be implemented as follows.
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_TOKEN_HERE',
 
@@ -489,15 +462,15 @@ In the above implementation, the interval increases exponentially for each retry
 
 #### 1.4.5.2. Do Something on Retry
 
-It would be useful to output logging on retries and a popup notifying the user that a retry has been executed. So **mastodon_api** provides callbacks that can perform arbitrary processing when retries are executed.
+It would be useful to output logging on retries and a popup notifying the user that a retry has been executed. So **kbin_api** provides callbacks that can perform arbitrary processing when retries are executed.
 
 It can be implemented as follows.
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_TOKEN_HERE',
     retryConfig: RetryConfig(
@@ -510,30 +483,30 @@ Future<void> main() async {
 }
 ```
 
-The [RetryEvent](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/RetryEvent-class.html) passed to the callback contains information on retries.
+The [RetryEvent](https://pub.dev/documentation/kbin_api/latest/kbin_api/RetryEvent-class.html) passed to the callback contains information on retries.
 
 ### 1.4.6. Thrown Exceptions
 
-**mastodon_api** provides a convenient exception object for easy handling of exceptional responses and errors returned from Mastodon API.
+**kbin_api** provides a convenient exception object for easy handling of exceptional responses and errors returned from Kbin API.
 
-| Exception                                                                                                                          | Description                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html)                   | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
-| [UnauthorizedException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/UnauthorizedException-class.html)           | Thrown when authentication fails with the specified access token.                                                     |
-| [RateLimitExceededException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/RateLimitExceededException-class.html) | Thrown when the request rate limit is exceeded.                                                                       |
-| [DataNotFoundException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/DataNotFoundException-class.html)           | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
+| Exception                                                                                                                  | Description                                                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html)                   | The most basic exception object. For example, it can be used to search for posts that have already been deleted, etc. |
+| [UnauthorizedException](https://pub.dev/documentation/kbin_api/latest/kbin_api/UnauthorizedException-class.html)           | Thrown when authentication fails with the specified access token.                                                     |
+| [RateLimitExceededException](https://pub.dev/documentation/kbin_api/latest/kbin_api/RateLimitExceededException-class.html) | Thrown when the request rate limit is exceeded.                                                                       |
+| [DataNotFoundException](https://pub.dev/documentation/kbin_api/latest/kbin_api/DataNotFoundException-class.html)           | Thrown when response has no body or data field in body string, or when 404 status is returned.                        |
 
-Also, all of the above exceptions thrown from the **mastodon_api** process extend [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html). This means that you can take all exceptions as [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html) or handle them as certain exception types, depending on the situation.
+Also, all of the above exceptions thrown from the **kbin_api** process extend [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html). This means that you can take all exceptions as [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html) or handle them as certain exception types, depending on the situation.
 
-However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html). Otherwise, certain type exceptions will also be caught as [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html).
+However note that, if you receive an individual type exception, be sure to define the process so that the individual exception type is cached before [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html). Otherwise, certain type exceptions will also be caught as [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html).
 
-Therefore, if you need to catch a specific type of exception in addition to [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html), be sure to catch [MastodonException](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/MastodonException-class.html) in the bottom catch clause as in the following example.
+Therefore, if you need to catch a specific type of exception in addition to [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html), be sure to catch [KbinException](https://pub.dev/documentation/kbin_api/latest/kbin_api/KbinException-class.html) in the bottom catch clause as in the following example.
 
 ```dart
-import 'package:mastodon_api/mastodon_api.dart';
+import 'package:kbin_api/kbin_api.dart';
 
 Future<void> main() async {
-  final mastodon = MastodonApi(
+  final mastodon = KbinApi(
     instance: 'MASTODON_INSTANCE',
     bearerToken: 'YOUR_TOKEN_HERE',
   );
@@ -546,7 +519,7 @@ Future<void> main() async {
     print(e);
   } on RateLimitExceededException catch (e) {
     print(e);
-  } on MastodonException catch (e) {
+  } on KbinException catch (e) {
     print(e);
   }
 }
@@ -554,7 +527,7 @@ Future<void> main() async {
 
 ## 1.5. Contribution 🏆
 
-If you would like to contribute to **mastodon_api**, please create an [issue](https://github.com/mastodon-dart/mastodon-api/issues) or create a Pull Request.
+If you would like to contribute to **kbin_api**, please create an [issue](https://github.com/mastodon-dart/mastodon-api/issues) or create a Pull Request.
 
 There are many ways to contribute to the OSS. For example, the following subjects can be considered:
 
@@ -604,7 +577,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## 1.7. Support ❤️
 
-The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/mastodon-dart/mastodon-api) and [Pub.dev](https://pub.dev/packages/mastodon_api).
+The simplest way to show us your support is by **giving the project a star** at [GitHub](https://github.com/mastodon-dart/mastodon-api) and [Pub.dev](https://pub.dev/packages/kbin_api).
 
 You can also support this project by **becoming a sponsor** on GitHub:
 
@@ -616,21 +589,21 @@ You can also support this project by **becoming a sponsor** on GitHub:
   </p>
 </div>
 
-You can also show on your repository that your app is made with **mastodon_api** by using one of the following badges:
+You can also show on your repository that your app is made with **kbin_api** by using one of the following badges:
 
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg)](https://github.com/mastodon-dart/mastodon-api)
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg?style=flat-square)](https://github.com/mastodon-dart/mastodon-api)
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg?style=for-the-badge)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg?style=flat-square)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg?style=for-the-badge)](https://github.com/mastodon-dart/mastodon-api)
 
 ```license
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg)](https://github.com/mastodon-dart/mastodon-api)
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg?style=flat-square)](https://github.com/mastodon-dart/mastodon-api)
-[![Powered by mastodon_api](https://img.shields.io/badge/Powered%20by-mastodon_api-00acee.svg?style=for-the-badge)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg?style=flat-square)](https://github.com/mastodon-dart/mastodon-api)
+[![Powered by kbin_api](https://img.shields.io/badge/Powered%20by-kbin_api-00acee.svg?style=for-the-badge)](https://github.com/mastodon-dart/mastodon-api)
 ```
 
 ## 1.8. License 🔑
 
-All resources of **mastodon_api** is provided under the `BSD-3` license.
+All resources of **kbin_api** is provided under the `BSD-3` license.
 
 ```license
 Copyright 2022 Kato Shinya. All rights reserved.
@@ -643,10 +616,10 @@ modification, are permitted provided the conditions.
 
 ## 1.9. More Information 🧐
 
-**mastodon_api** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
+**kbin_api** was designed and implemented by **_Kato Shinya ([@myConsciousness](https://github.com/myConsciousness))_**.
 
 - [Creator Profile](https://github.com/myConsciousness)
 - [License](https://github.com/mastodon-dart/mastodon-api/blob/main/LICENSE)
-- [API Document](https://pub.dev/documentation/mastodon_api/latest/mastodon_api/mastodon_api-library.html)
+- [API Document](https://pub.dev/documentation/kbin_api/latest/kbin_api/kbin_api-library.html)
 - [Release Note](https://github.com/mastodon-dart/mastodon-api/releases)
 - [Bug Report](https://github.com/mastodon-dart/mastodon-api/issues)

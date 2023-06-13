@@ -3,15 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/core/exception/mastodon_exception.dart';
-import 'package:mastodon_api/src/core/scope.dart';
-import 'package:mastodon_api/src/service/entities/application.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/entities/registered_application.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/apps/apps_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/core/scope.dart';
+import 'package:kbin_api/src/service/entities/application.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/entities/registered_application.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/apps/apps_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -38,7 +38,7 @@ void main() {
         websiteUrl: 'https://shinyakato.dev',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<RegisteredApplication>());
     });
@@ -61,7 +61,7 @@ void main() {
         websiteUrl: 'https://shinyakato.dev',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<RegisteredApplication>());
     });
@@ -116,9 +116,9 @@ void main() {
         () async => await appsService.createApplication(clientName: ''),
         throwsA(
           allOf(
-            isA<MastodonException>(),
+            isA<KbinException>(),
             predicate(
-              (MastodonException e) =>
+              (KbinException e) =>
                   e.message ==
                   'Required parameter is missing or improperly formatted.',
             ),
@@ -148,7 +148,7 @@ void main() {
         bearerToken: 'test',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Application>());
     });
@@ -216,7 +216,7 @@ void main() {
         email: 'test',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -233,7 +233,7 @@ void main() {
         ),
       );
 
-      expectMastodonException(
+      expectKbinException(
         () async => await appsService.createNewConfirmationEmail(
           email: 'test',
         ),

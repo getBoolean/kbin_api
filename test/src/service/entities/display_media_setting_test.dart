@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/service/entities/display_media_setting.dart';
+import 'package:kbin_api/src/service/entities/display_media_setting.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 

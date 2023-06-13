@@ -18,7 +18,7 @@ import '../../entities/rule.dart';
 import '../../entities/status.dart';
 import '../../entities/tag.dart';
 import '../../entities/trends_link.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 import 'instance_account_order.dart';
 
 abstract class InstanceV1Service {
@@ -47,7 +47,7 @@ abstract class InstanceV1Service {
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#v1
   @Deprecated('Still works, but officially deprecated. Use v2 endpoint instead')
-  Future<MastodonResponse<Instance>> lookupInformation();
+  Future<KbinResponse<Instance>> lookupInformation();
 
   /// Domains that this instance is aware of.
   ///
@@ -62,7 +62,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#peers
-  Future<MastodonResponse<List<String>>> lookupConnectedDomains();
+  Future<KbinResponse<List<String>>> lookupConnectedDomains();
 
   /// Instance activity over the last 3 months, binned weekly.
   ///
@@ -78,7 +78,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#activity
-  Future<MastodonResponse<List<InstanceActivity>>> lookupWeeklyActivities();
+  Future<KbinResponse<List<InstanceActivity>>> lookupWeeklyActivities();
 
   /// Rules that the users of this service should follow.
   ///
@@ -94,7 +94,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#rules
-  Future<MastodonResponse<List<Rule>>> lookupRules();
+  Future<KbinResponse<List<Rule>>> lookupRules();
 
   /// Obtain a list of domains that have been blocked.
   ///
@@ -110,7 +110,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#domain_blocks
-  Future<MastodonResponse<List<BlockedDomain>>> lookupBlockedDomains();
+  Future<KbinResponse<List<BlockedDomain>>> lookupBlockedDomains();
 
   /// Obtain an extended description of this server
   ///
@@ -125,7 +125,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/instance/#extended_description
-  Future<MastodonResponse<ExtendedDescription>> lookupExtendedDescription();
+  Future<KbinResponse<ExtendedDescription>> lookupExtendedDescription();
 
   /// Tags that are being used more frequently within the past week.
   ///
@@ -144,7 +144,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/trends/#tags
-  Future<MastodonResponse<List<Tag>>> lookupTrendingTags({
+  Future<KbinResponse<List<Tag>>> lookupTrendingTags({
     int? limit,
   });
 
@@ -165,7 +165,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/trends/#statuses
-  Future<MastodonResponse<List<Status>>> lookupTrendingStatuses({
+  Future<KbinResponse<List<Status>>> lookupTrendingStatuses({
     int? limit,
   });
 
@@ -186,7 +186,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/trends/#links
-  Future<MastodonResponse<List<TrendsLink>>> lookupTrendingLinks({
+  Future<KbinResponse<List<TrendsLink>>> lookupTrendingLinks({
     int? limit,
   });
 
@@ -203,7 +203,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/announcements/#get
-  Future<MastodonResponse<List<Announcement>>> lookupActiveAnnouncements();
+  Future<KbinResponse<List<Announcement>>> lookupActiveAnnouncements();
 
   /// See all announcements set by admins.
   ///
@@ -218,7 +218,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/announcements/#get
-  Future<MastodonResponse<List<Announcement>>> lookupAnnouncements();
+  Future<KbinResponse<List<Announcement>>> lookupAnnouncements();
 
   /// Allows a user to mark the announcement as read.
   ///
@@ -241,7 +241,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/announcements/#dismiss
-  Future<MastodonResponse<Empty>> createMarkAnnouncementAsRead({
+  Future<KbinResponse<Empty>> createMarkAnnouncementAsRead({
     required String announcementId,
   });
 
@@ -268,7 +268,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/announcements/#put-reactions
-  Future<MastodonResponse<Empty>> createReactionToAnnouncement({
+  Future<KbinResponse<Empty>> createReactionToAnnouncement({
     required String announcementId,
     required String emojiName,
   });
@@ -296,7 +296,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/announcements/#delete-reactions
-  Future<MastodonResponse<Empty>> destroyReactionToAnnouncement({
+  Future<KbinResponse<Empty>> destroyReactionToAnnouncement({
     required String announcementId,
     required String emojiName,
   });
@@ -314,7 +314,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/custom_emojis/#get
-  Future<MastodonResponse<List<Emoji>>> lookupAvailableEmoji();
+  Future<KbinResponse<List<Emoji>>> lookupAvailableEmoji();
 
   /// List accounts visible in the directory.
   ///
@@ -341,7 +341,7 @@ abstract class InstanceV1Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/directory/#get
-  Future<MastodonResponse<List<Account>>> lookupAccounts({
+  Future<KbinResponse<List<Account>>> lookupAccounts({
     int? offset,
     int? limit,
     InstanceAccountOrder? order,
@@ -357,7 +357,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
   });
 
   @override
-  Future<MastodonResponse<Instance>> lookupInformation() async =>
+  Future<KbinResponse<Instance>> lookupInformation() async =>
       super.transformSingleDataResponse(
         await super.get(
           UserContext.oauth2OrAnonymous,
@@ -367,7 +367,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<String>>> lookupConnectedDomains() async =>
+  Future<KbinResponse<List<String>>> lookupConnectedDomains() async =>
       super.transformMultiRawDataResponse<String>(
         await super.get(
           UserContext.anonymousOnly,
@@ -376,17 +376,17 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<InstanceActivity>>>
-      lookupWeeklyActivities() async => super.transformMultiDataResponse(
-            await super.get(
-              UserContext.oauth2OrAnonymous,
-              '/api/v1/instance/activity',
-            ),
-            dataBuilder: InstanceActivity.fromJson,
-          );
+  Future<KbinResponse<List<InstanceActivity>>> lookupWeeklyActivities() async =>
+      super.transformMultiDataResponse(
+        await super.get(
+          UserContext.oauth2OrAnonymous,
+          '/api/v1/instance/activity',
+        ),
+        dataBuilder: InstanceActivity.fromJson,
+      );
 
   @override
-  Future<MastodonResponse<List<Rule>>> lookupRules() async =>
+  Future<KbinResponse<List<Rule>>> lookupRules() async =>
       super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2OrAnonymous,
@@ -396,7 +396,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<BlockedDomain>>> lookupBlockedDomains() async =>
+  Future<KbinResponse<List<BlockedDomain>>> lookupBlockedDomains() async =>
       super.transformMultiDataResponse(
         await super.get(
           UserContext.oauth2OrAnonymous,
@@ -406,17 +406,17 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<ExtendedDescription>>
-      lookupExtendedDescription() async => super.transformSingleDataResponse(
-            await super.get(
-              UserContext.anonymousOnly,
-              '/api/v1/example',
-            ),
-            dataBuilder: ExtendedDescription.fromJson,
-          );
+  Future<KbinResponse<ExtendedDescription>> lookupExtendedDescription() async =>
+      super.transformSingleDataResponse(
+        await super.get(
+          UserContext.anonymousOnly,
+          '/api/v1/example',
+        ),
+        dataBuilder: ExtendedDescription.fromJson,
+      );
 
   @override
-  Future<MastodonResponse<List<Tag>>> lookupTrendingTags({
+  Future<KbinResponse<List<Tag>>> lookupTrendingTags({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -431,7 +431,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Status>>> lookupTrendingStatuses({
+  Future<KbinResponse<List<Status>>> lookupTrendingStatuses({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -446,7 +446,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<TrendsLink>>> lookupTrendingLinks({
+  Future<KbinResponse<List<TrendsLink>>> lookupTrendingLinks({
     int? limit,
   }) async =>
       super.transformMultiDataResponse(
@@ -461,19 +461,19 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Announcement>>> lookupActiveAnnouncements({
+  Future<KbinResponse<List<Announcement>>> lookupActiveAnnouncements({
     bool? includeDismissed,
   }) async =>
       await _lookupAnnouncements(includeDismissed: false);
 
   @override
-  Future<MastodonResponse<List<Announcement>>> lookupAnnouncements({
+  Future<KbinResponse<List<Announcement>>> lookupAnnouncements({
     bool? includeDismissed,
   }) async =>
       await _lookupAnnouncements(includeDismissed: true);
 
   @override
-  Future<MastodonResponse<Empty>> createMarkAnnouncementAsRead({
+  Future<KbinResponse<Empty>> createMarkAnnouncementAsRead({
     required String announcementId,
   }) async =>
       super.transformEmptyResponse(
@@ -484,7 +484,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> createReactionToAnnouncement({
+  Future<KbinResponse<Empty>> createReactionToAnnouncement({
     required String announcementId,
     required String emojiName,
   }) async =>
@@ -496,7 +496,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<Empty>> destroyReactionToAnnouncement({
+  Future<KbinResponse<Empty>> destroyReactionToAnnouncement({
     required String announcementId,
     required String emojiName,
   }) async =>
@@ -507,7 +507,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
         ),
       );
 
-  Future<MastodonResponse<List<Announcement>>> _lookupAnnouncements({
+  Future<KbinResponse<List<Announcement>>> _lookupAnnouncements({
     bool? includeDismissed,
   }) async =>
       super.transformMultiDataResponse(
@@ -522,7 +522,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Emoji>>> lookupAvailableEmoji() async =>
+  Future<KbinResponse<List<Emoji>>> lookupAvailableEmoji() async =>
       super.transformMultiDataResponse(
         await super.get(
           UserContext.anonymousOnly,
@@ -532,7 +532,7 @@ class _InstanceV1Service extends BaseService implements InstanceV1Service {
       );
 
   @override
-  Future<MastodonResponse<List<Account>>> lookupAccounts({
+  Future<KbinResponse<List<Account>>> lookupAccounts({
     int? offset,
     int? limit,
     InstanceAccountOrder? order,

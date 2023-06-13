@@ -1,6 +1,6 @@
 ---
 name: Improvement suggestion.
-about: Something in mastodon_api can be improved.
+about: Something in kbin_api can be improved.
 title: "Improve Suggestion:"
 labels: "enhancement,untriaged"
 assignees: "myConsciousness"

@@ -1,9 +1,9 @@
 {
   "domain": "mastodon.social",
-  "title": "Mastodon",
+  "title": "Kbin",
   "version": "4.0.0rc1",
   "source_url": "https://github.com/mastodon/mastodon",
-  "description": "The original server operated by the Mastodon gGmbH non-profit",
+  "description": "The original server operated by the Kbin gGmbH non-profit",
   "usage": {
     "users": {
       "active_month": 123122
@@ -17,7 +17,9 @@
       "@2x": "https://files.mastodon.social/site_uploads/files/000/000/001/@2x/57c12f441d083cde.png"
     }
   },
-  "languages": ["en"],
+  "languages": [
+    "en"
+  ],
   "configuration": {
     "urls": {
       "streaming": "wss://mastodon.social"
@@ -93,7 +95,7 @@
       "discoverable": true,
       "group": false,
       "created_at": "2016-03-16T00:00:00.000Z",
-      "note": "<p>Founder, CEO and lead developer <span class=\"h-card\"><a href=\"https://mastodon.social/@Mastodon\" class=\"u-url mention\">@<span>Mastodon</span></a></span>, Germany.</p>",
+      "note": "<p>Founder, CEO and lead developer <span class=\"h-card\"><a href=\"https://mastodon.social/@Kbin\" class=\"u-url mention\">@<span>Kbin</span></a></span>, Germany.</p>",
       "url": "https://mastodon.social/@Gargron",
       "avatar": "https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",
       "avatar_static": "https://files.mastodon.social/accounts/avatars/000/000/001/original/dc4286ceb8fab734.jpg",

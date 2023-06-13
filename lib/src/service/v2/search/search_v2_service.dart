@@ -6,7 +6,7 @@
 import '../../../core/client/client_context.dart';
 import '../../../core/client/user_context.dart';
 import '../../base_service.dart';
-import '../../response/mastodon_response.dart';
+import '../../response/kbin_response.dart';
 import '../entities/v2_search.dart';
 import 'search_content_type.dart';
 
@@ -67,7 +67,7 @@ abstract class SearchV2Service {
   /// ## Reference
   ///
   /// - https://docs.joinmastodon.org/methods/search/#v2
-  Future<MastodonResponse<V2Search>> searchContents({
+  Future<KbinResponse<V2Search>> searchContents({
     required String query,
     SearchContentType? type,
     bool? resolveWithWebFinger,
@@ -89,7 +89,7 @@ class _SearchV2Service extends BaseService implements SearchV2Service {
   });
 
   @override
-  Future<MastodonResponse<V2Search>> searchContents({
+  Future<KbinResponse<V2Search>> searchContents({
     required String query,
     SearchContentType? type,
     bool? resolveWithWebFinger,

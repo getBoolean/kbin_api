@@ -3,11 +3,11 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'mastodon_exception.dart';
+import 'kbin_exception.dart';
 
 /// This exception is thrown when uploading media, etc.,
-/// to indicate that the upload is in progress on Mastodon's server.
-class PendingException extends MastodonException {
+/// to indicate that the upload is in progress on Kbin's server.
+class PendingException extends KbinException {
   /// Returns the new instance of [PendingException].
   PendingException(super.message, super.response, [super.body]);
 

@@ -21,7 +21,7 @@ class Token with _$Token {
     /// An OAuth token to be used for authorization.
     required String accessToken,
 
-    /// The OAuth token type. Mastodon uses Bearer tokens.
+    /// The OAuth token type. Kbin uses Bearer tokens.
     required String tokenType,
 
     /// The OAuth scopes granted by this token.

@@ -3,20 +3,20 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'package:mastodon_api/src/core/client/user_context.dart';
-import 'package:mastodon_api/src/core/exception/mastodon_exception.dart';
-import 'package:mastodon_api/src/service/entities/account.dart';
-import 'package:mastodon_api/src/service/entities/empty.dart';
-import 'package:mastodon_api/src/service/entities/poll.dart';
-import 'package:mastodon_api/src/service/entities/rate_limit.dart';
-import 'package:mastodon_api/src/service/entities/scheduled_status.dart';
-import 'package:mastodon_api/src/service/entities/status.dart';
-import 'package:mastodon_api/src/service/entities/status_context.dart';
-import 'package:mastodon_api/src/service/entities/status_edit.dart';
-import 'package:mastodon_api/src/service/entities/status_source.dart';
-import 'package:mastodon_api/src/service/response/mastodon_response.dart';
-import 'package:mastodon_api/src/service/v1/statuses/status_poll_param.dart';
-import 'package:mastodon_api/src/service/v1/statuses/statuses_v1_service.dart';
+import 'package:kbin_api/src/core/client/user_context.dart';
+import 'package:kbin_api/src/core/exception/kbin_exception.dart';
+import 'package:kbin_api/src/service/entities/account.dart';
+import 'package:kbin_api/src/service/entities/empty.dart';
+import 'package:kbin_api/src/service/entities/poll.dart';
+import 'package:kbin_api/src/service/entities/rate_limit.dart';
+import 'package:kbin_api/src/service/entities/scheduled_status.dart';
+import 'package:kbin_api/src/service/entities/status.dart';
+import 'package:kbin_api/src/service/entities/status_context.dart';
+import 'package:kbin_api/src/service/entities/status_edit.dart';
+import 'package:kbin_api/src/service/entities/status_source.dart';
+import 'package:kbin_api/src/service/response/kbin_response.dart';
+import 'package:kbin_api/src/service/v1/statuses/status_poll_param.dart';
+import 'package:kbin_api/src/service/v1/statuses/statuses_v1_service.dart';
 // 📦 Package imports:
 import 'package:test/test.dart';
 
@@ -44,7 +44,7 @@ void main() {
         ),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
       expect(response.data.id, '109384580642337706');
@@ -102,7 +102,7 @@ void main() {
         pollId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Poll>());
     });
@@ -165,7 +165,7 @@ void main() {
         choice: 1,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Poll>());
     });
@@ -229,9 +229,9 @@ void main() {
         ),
         throwsA(
           allOf(
-            isA<MastodonException>(),
+            isA<KbinException>(),
             predicate(
-              (MastodonException e) =>
+              (KbinException e) =>
                   e.message ==
                   'Required parameter is missing or improperly formatted.',
             ),
@@ -258,7 +258,7 @@ void main() {
         choices: [1, 2],
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Poll>());
     });
@@ -322,9 +322,9 @@ void main() {
         ),
         throwsA(
           allOf(
-            isA<MastodonException>(),
+            isA<KbinException>(),
             predicate(
-              (MastodonException e) =>
+              (KbinException e) =>
                   e.message ==
                   'Required parameter is missing or improperly formatted.',
             ),
@@ -351,7 +351,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -412,7 +412,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<StatusContext>());
     });
@@ -473,7 +473,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -535,7 +535,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<Account>>());
     });
@@ -596,7 +596,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -637,7 +637,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -678,7 +678,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -719,7 +719,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -760,7 +760,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -801,7 +801,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -842,7 +842,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -883,7 +883,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -924,7 +924,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -965,7 +965,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Status>());
     });
@@ -1007,7 +1007,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<StatusEdit>>());
     });
@@ -1068,7 +1068,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<StatusSource>());
     });
@@ -1134,7 +1134,7 @@ void main() {
         ),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<ScheduledStatus>());
       expect(response.data.id, '3221');
@@ -1198,7 +1198,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<ScheduledStatus>());
     });
@@ -1268,7 +1268,7 @@ void main() {
         limit: 40,
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<List<ScheduledStatus>>());
     });
@@ -1345,7 +1345,7 @@ void main() {
         statusId: '1234',
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<Empty>());
     });
@@ -1402,7 +1402,7 @@ void main() {
         schedule: DateTime(2023, 3, 1),
       );
 
-      expect(response, isA<MastodonResponse>());
+      expect(response, isA<KbinResponse>());
       expect(response.rateLimit, isA<RateLimit>());
       expect(response.data, isA<ScheduledStatus>());
     });

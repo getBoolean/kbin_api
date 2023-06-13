@@ -3,14 +3,14 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'mastodon_exception.dart';
+import 'kbin_exception.dart';
 
 /// This exception indicates that the number of requests for a particular
-/// endpoint exceeds the rate limit defined by the Mastodon API.
+/// endpoint exceeds the rate limit defined by the Kbin API.
 ///
 /// Also, if this exception is thrown, it indicates that requests for a
 /// particular endpoint will be restricted for a certain amount of time or more.
-class RateLimitExceededException extends MastodonException {
+class RateLimitExceededException extends KbinException {
   /// Returns the new instance of [RateLimitExceededException].
   RateLimitExceededException(super.message, super.response, [super.body]);
 

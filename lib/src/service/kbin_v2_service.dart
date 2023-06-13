@@ -8,14 +8,14 @@ import 'v2/accounts/accounts_v2_service.dart';
 import 'v2/media/media_v2_service.dart';
 import 'v2/search/search_v2_service.dart';
 
-/// The class represents the Mastodon v2 services.
-abstract class MastodonV2Service {
-  /// Returns the new instance of [MastodonV2Service].
-  factory MastodonV2Service({
+/// The class represents the Kbin v2 services.
+abstract class KbinV2Service {
+  /// Returns the new instance of [KbinV2Service].
+  factory KbinV2Service({
     required String instance,
     required ClientContext context,
   }) =>
-      _MastodonV2Service(
+      _KbinV2Service(
         instance: instance,
         context: context,
       );
@@ -30,9 +30,9 @@ abstract class MastodonV2Service {
   MediaV2Service get media;
 }
 
-class _MastodonV2Service implements MastodonV2Service {
-  /// Returns the new instance of [_MastodonV2Service].
-  _MastodonV2Service({
+class _KbinV2Service implements KbinV2Service {
+  /// Returns the new instance of [_KbinV2Service].
+  _KbinV2Service({
     required String instance,
     required ClientContext context,
   })  : accounts = AccountsV2Service(instance: instance, context: context),
