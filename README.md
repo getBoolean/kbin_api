@@ -1,8 +1,6 @@
 # kbin API
 
-<p align="center">
-  <b>The Easiest and Powerful Dart/Flutter Library for Kbin API 🎯</b>
-</p>
+An Easy and Powerful Dart/Flutter Library for Kbin API 🎯
 
 **WARNING: THIS LIBRARY IS HEAVILY WIP. DO NOT USE!.**
 
