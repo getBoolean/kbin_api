@@ -2,7 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:kbin_api/src/kbin_api.dart';
 export 'package:kbin_api/src/core/client/jitter.dart';
 export 'package:kbin_api/src/core/client/retry_event.dart';
 export 'package:kbin_api/src/core/config/retry_config.dart';
@@ -19,6 +18,7 @@ export 'package:kbin_api/src/core/locale.dart';
 export 'package:kbin_api/src/core/mime_type.dart';
 export 'package:kbin_api/src/core/scope.dart';
 export 'package:kbin_api/src/core/visibility.dart';
+export 'package:kbin_api/src/kbin_api.dart';
 export 'package:kbin_api/src/old_mastodon/service/entities/account.dart';
 export 'package:kbin_api/src/old_mastodon/service/entities/account_preferences.dart';
 export 'package:kbin_api/src/old_mastodon/service/entities/announcement.dart';
