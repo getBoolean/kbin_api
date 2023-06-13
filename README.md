@@ -2,7 +2,7 @@
 
 An Easy and Powerful Dart/Flutter Library for Kbin API 🎯
 
-**WARNING: THIS LIBRARY IS HEAVILY WIP. DO NOT USE!.**
+**WARNING: This library is not functional. [kbin does not have a functioning API](https://kbin.social/m/kbinMeta/t/12981/API-Access#entry-comment-56152) *yet*.**
 
 <!-- TOC -->
 
