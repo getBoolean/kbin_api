@@ -8,7 +8,7 @@ Future<void> main() async {
   //! You need to specify mastodon instance (domain) you want to access.
   //! Also you need to get bearer token from your developer page, or OAuth 2.0.
   final mastodon = KbinApi(
-    instance: 'MASTODON_INSTANCE',
+    instance: 'KBIN_INSTANCE',
     bearerToken: 'YOUR_BEARER_TOKEN',
 
     //! Automatic retry is available when server error or network error occurs
